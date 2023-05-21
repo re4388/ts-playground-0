@@ -1,4 +1,9 @@
-import { add } from "./util/adder";
+import { momentPlay } from "./moment_play";
+import { mqttPlay } from "./mqtt_client_play";
+import { ramdaPlay } from "./ramda_play";
+import { tcpServer } from "./tcp_server_play";
 
-let res = add(2, 3);
-console.log("res", res);
+// momentPlay();
+// ramdaPlay();
+// mqttPlay();
+// tcpServer();
