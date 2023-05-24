@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@faker-js/faker": "^8.0.1",
     "@types/node": "^20.1.4",
     "nodemon": "^2.0.22",
     "ts-node": "^10.9.1",
@@ -23,10 +24,15 @@
     "@types/moment": "^2.13.0",
     "@types/moment-timezone": "^0.5.30",
     "@types/mqtt": "^2.5.0",
+    "@types/netmask": "^2.0.0",
     "@types/ramda": "^0.29.1",
+    "bullmq": "^3.14.0",
+    "ioredis": "^5.3.2",
+    "magic-regexp": "^0.7.0",
     "moment": "^2.29.4",
     "moment-timezone": "^0.5.43",
     "mqtt": "^4.3.7",
+    "netmask": "^2.0.2",
     "ramda": "^0.29.0"
   }
 }
