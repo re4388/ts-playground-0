@@ -13,6 +13,7 @@ import { expressProxy } from './server-stuff/reverse-proxy/express-proxy-middlew
 import { port_forwarding } from './server-stuff/reverse-proxy/port-forwarding'
 import { nodeJS_Process } from './nodeJS/process'
 import { run_sqlite0 } from './db/sqlite3/sqlite0'
+import { run_ts_sql_query0 } from './db/sqlite3/ts-sql-query0'
 
 const main = async () => {
   // facker();
@@ -31,7 +32,8 @@ const main = async () => {
   // proxyServerWithExpress()
   // port_forwarding()
   // nodeJS_Process()
-  run_sqlite0()
+  await run_sqlite0()
+  // run_ts_sql_query0()
   // run_facker()
 }
 
