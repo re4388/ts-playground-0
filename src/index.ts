@@ -17,8 +17,8 @@ import { run_ts_sql_query0 } from './db/sqlite3/ts-sql-query0'
 
 const main = async () => {
   // facker();
-  // momentPlay()
-  // ramdaPlay();
+  momentPlay()
+  // ramdaPlay()
   // mqttPlay();
   // tcpServer();
   // netmask()
@@ -32,7 +32,7 @@ const main = async () => {
   // proxyServerWithExpress()
   // port_forwarding()
   // nodeJS_Process()
-  await run_sqlite0()
+  // await run_sqlite0()
   // run_ts_sql_query0()
   // run_facker()
 }

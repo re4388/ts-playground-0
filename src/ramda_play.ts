@@ -1,14 +1,29 @@
-import * as R from "ramda";
+import * as R from 'ramda'
 
 interface Maintenance {
-  id: string;
-  scooterId: string;
-  itemId: string;
-  createdAt: Date;
-  verifiedAt: Date;
+  id: string
+  scooterId: string
+  itemId: string
+  createdAt: Date
+  verifiedAt: Date
 }
 
 export function ramdaPlay() {
+  // R.empty
+  // R.empty('')
+  // console.log('R.empty("")', R.empty(''))
+  // R.empty('2')
+  // console.log('R.empty("2")', R.empty('2'))
+
+  // R.empty([])
+  // console.log('R.empty([])', R.empty([]))
+  // R.empty(['1'])
+  // console.log("R.empty(['1'])", R.empty(['1']))
+  // R.empty({})
+  // console.log('R.empty({})', R.empty({}))
+  // R.empty({ foo: 'bar' })
+  // console.log("R.empty({foo: 'bar'})", R.empty({ foo: 'bar' }))
+
   // compose
   // const classyGreeting = (firstName: any, lastName: any) =>
   //   "The name's " + lastName + ", " + firstName + " " + lastName;
@@ -22,33 +37,32 @@ export function ramdaPlay() {
   const response = {
     data: [
       {
-        id: "id-1",
-        scooterId: "qat-001",
-        itemId: "item-001",
+        id: 'id-1',
+        scooterId: 'qat-001',
+        itemId: 'item-001',
         createdAt: new Date(),
-        verifiedAt: new Date(),
+        verifiedAt: new Date()
       },
       {
-        id: "id-2",
-        scooterId: "qat-002",
-        itemId: "item-002",
+        id: 'id-2',
+        scooterId: 'qat-002',
+        itemId: 'item-002',
         createdAt: new Date(),
-        verifiedAt: new Date(),
-      },
-    ],
-  };
+        verifiedAt: new Date()
+      }
+    ]
+  }
 
   const maintenances = response.data.map((maintenance: Maintenance) =>
     R.pipe(
-      R.pick(["id", "scooterId", "itemId"]),
+      R.pick(['id', 'scooterId', 'itemId']),
       R.evolve({
-        id: (id) => id + " postfix",
+        id: (id) => id + ' postfix',
         createdAt: (createdAt) => createdAt.toISOString(),
-        verifiedAt: (verifiedAt) =>
-          verifiedAt ? verifiedAt.toISOString() : "",
+        verifiedAt: (verifiedAt) => (verifiedAt ? verifiedAt.toISOString() : '')
       })
     )(maintenance)
-  );
+  )
 
-  console.log("maintenances", maintenances);
+  console.log('maintenances', maintenances)
 }

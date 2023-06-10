@@ -2,6 +2,14 @@ import { log } from 'console'
 import moment from 'moment-timezone'
 
 export function momentPlay() {
+  t4()
+  function t4() {
+    const before = moment(new Date())
+    console.log('before', before)
+    const after = moment(new Date()).subtract(1, 'days').toDate()
+    console.log('beginAt', after)
+  }
+
   // t3();
 
   function t3() {
