@@ -28,6 +28,7 @@ async function main () {
 
 main()
 
+
 //
 // To run the example:
 // echo 'Hello World!' | gzip | ts-node text_process.ts | gunzip
