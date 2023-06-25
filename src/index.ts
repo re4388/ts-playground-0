@@ -14,10 +14,16 @@ import { port_forwarding } from './server-stuff/reverse-proxy/port-forwarding'
 import { nodeJS_Process } from './nodeJS/process'
 import { run_sqlite0 } from './db/sqlite3/sqlite0'
 import { run_ts_sql_query0 } from './db/sqlite3/ts-sql-query0'
+import { runRegex } from './regex'
+import { tryEventEmitter } from './eventEmitter'
 
 const main = async () => {
-  // facker();
-  momentPlay()
+  // runRegex()
+  run_facker();
+  // tryEventEmitter()
+  // async_1()
+  // momentPlay()
+
   // ramdaPlay()
   // mqttPlay();
   // tcpServer();
@@ -35,6 +41,9 @@ const main = async () => {
   // await run_sqlite0()
   // run_ts_sql_query0()
   // run_facker()
+  //
+
 }
+
 
 main()
