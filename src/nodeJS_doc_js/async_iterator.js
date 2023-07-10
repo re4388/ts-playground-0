@@ -15,13 +15,14 @@ const filePath = `a1.txt`
 
 
 // async-iterator
-async function main () {
+async function run1 () {
   const stream = fs.createReadStream(filePath).pipe(split2(addQAtEnd))
   for await (const line of stream) {
     console.log(`You wrote: ${line}`)
   }
 }
-main()
+
+run1()
 
 
 function addQAtEnd(line) {

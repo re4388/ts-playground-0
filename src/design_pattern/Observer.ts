@@ -4,8 +4,8 @@
  *
  * Here are some common use cases for the Observer design pattern:
  * 1. Event-driven systems: The Observer pattern is widely used in event-driven architectures,
- * where an event source emits events, and multiple listeners (observers) are interested in those events.
- * The observers subscribe to the event source and receive notifications when events occur.
+ * where an event source emits event, and multiple listeners (observers) are interested in those event.
+ * The observers subscribe to the event source and receive notifications when event occur.
  * Examples include GUI frameworks, message queues, and reactive programming libraries.
  *
  * 2. User interface (UI) updates: In graphical user interfaces, the Observer pattern is often used to
@@ -14,13 +14,13 @@
  * When the underlying data changes, the observers are notified and update their respective UI elements accordingly.
  *
  * 3. Publish-Subscribe systems: The Observer pattern forms the basis of publish-subscribe systems,
- * where publishers produce messages or events, and subscribers consume them.
- * Subscribers (observers) express their interest in specific topics or types of events
+ * where publishers produce messages or event, and subscribers consume them.
+ * Subscribers (observers) express their interest in specific topics or types of event
  * and receive notifications when relevant messages are published.
  * This pattern is commonly used in messaging systems, real-time data streaming, and event-driven architectures.
  *
  * 4. Logging and auditing: In logging systems, the Observer pattern can be used to notify multiple loggers
- * or auditing components about events or log entries. Each logger or auditing component can perform
+ * or auditing components about event or log entries. Each logger or auditing component can perform
  * its specific logging or auditing tasks based on the received notifications.
  *
  * 5. Distributed systems: The Observer pattern is useful in distributed systems to propagate state changes

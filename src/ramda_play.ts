@@ -9,6 +9,16 @@ interface Maintenance {
 }
 
 export function ramdaPlay() {
+  const recordA = {
+    a: 12,
+    b: 22,
+    c: 33
+  }
+  let res = R.pick(['a', 'b', 'c'], recordA)
+  console.log('=====> res: ', res)
+
+  const r2 = {...res}
+  console.log('r2', r2)
 
   // R.empty
   // R.empty('')
@@ -35,35 +45,35 @@ export function ramdaPlay() {
   // console.log("a2", a2);
   //////////////////////////////////////////////////////////////////////////
 
-  const response = {
-    data: [
-      {
-        id: 'id-1',
-        scooterId: 'qat-001',
-        itemId: 'item-001',
-        createdAt: new Date(),
-        verifiedAt: new Date()
-      },
-      {
-        id: 'id-2',
-        scooterId: 'qat-002',
-        itemId: 'item-002',
-        createdAt: new Date(),
-        verifiedAt: new Date()
-      }
-    ]
-  }
-
-  const maintenances = response.data.map((maintenance: Maintenance) =>
-    R.pipe(
-      R.pick(['id', 'scooterId', 'itemId']),
-      R.evolve({
-        id: (id) => id + ' postfix',
-        createdAt: (createdAt) => createdAt.toISOString(),
-        verifiedAt: (verifiedAt) => (verifiedAt ? verifiedAt.toISOString() : '')
-      })
-    )(maintenance)
-  )
-
-  console.log('maintenances', maintenances)
+  // const response = {
+  //   data: [
+  //     {
+  //       id: 'id-1',
+  //       scooterId: 'qat-001',
+  //       itemId: 'item-001',
+  //       createdAt: new Date(),
+  //       verifiedAt: new Date()
+  //     },
+  //     {
+  //       id: 'id-2',
+  //       scooterId: 'qat-002',
+  //       itemId: 'item-002',
+  //       createdAt: new Date(),
+  //       verifiedAt: new Date()
+  //     }
+  //   ]
+  // }
+  //
+  // const maintenances = response.data.map((maintenance: Maintenance) =>
+  //   R.pipe(
+  //     R.pick(['id', 'scooterId', 'itemId']),
+  //     R.evolve({
+  //       id: (id) => id + ' postfix',
+  //       createdAt: (createdAt) => createdAt.toISOString(),
+  //       verifiedAt: (verifiedAt) => (verifiedAt ? verifiedAt.toISOString() : '')
+  //     })
+  //   )(maintenance)
+  // )
+  //
+  // console.log('maintenances', maintenances)
 }

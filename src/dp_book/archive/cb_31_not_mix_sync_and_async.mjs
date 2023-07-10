@@ -9,8 +9,8 @@ function index(filename, cb) {
     // cb(cache.get(filename))
 
     /**
-     * 1. process.nextTick: microtask queue, before all IO events
-     * 2. setImmediate after all IO events
+     * 1. process.nextTick: microtask queue, before all IO event
+     * 2. setImmediate after all IO event
      * 3. setTimeout: 比 setImmediate 慢呼叫，since it is a macrotask
      * 會到一整個 event loop 後 (microtask queue is a small event loop inside a macrotask event loop）
      */
