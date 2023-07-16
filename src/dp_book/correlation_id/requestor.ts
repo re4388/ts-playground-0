@@ -30,6 +30,7 @@ export async function run_Correlation_Id_pattern_MAIN() {
     // so the 500 code block will run later but at the front block
 
     const p1 = requestTask({ a: 1, b: 2, delay: 500 })
+      // resolve is the onFulfill cb in then
       .then((res) => {
         const resTyped = <{ sum: number }>res
         console.log(`Reply: 1 + 2 = ${resTyped.sum}`)  // run second
