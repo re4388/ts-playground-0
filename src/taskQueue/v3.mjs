@@ -4,7 +4,7 @@
 https://github.com/PacktPublishing/Node.js-Design-Patterns-Third-Edition/blob/master/05-asynchronous-control-flow-patterns-with-promises-and-async-await/05-promises-web-spider-v4/TaskQueue.js
 */
 
-export class TaskQueue {
+export class TaskQueueV3 {
   constructor (concurrency) {
     this.concurrency = concurrency
     this.running = 0

@@ -21,13 +21,29 @@ import { runSimpleExpress } from './servers/simpleExpress/server'
 import { run_Correlation_Id_pattern_MAIN } from './dp_book/correlation_id/requestor'
 import { createTaskMain } from './dp_book/task_pattern/task1'
 import { readBuffer } from './stream/readable2'
+// import { runParser } from './psql_paser/p1'
+import { runParserP2 } from './psql_paser/p2'
+
+// import { Innertube } from 'youtubei.js';
+
 
 const main = async () => {
+
+  // const youtube = await Innertube.create(/* options */);
+  // const info = await youtube.getLibrary()
+
+
+
+  // const { Innertube } = require('youtubei.js');
+
+
+  // runParserP2()
+  // runParser()
   // runRegex()
-  // run_facker();
+  run_facker();
   // tryEventEmitter()
   // async_1()
-  momentPlay()
+  // momentPlay()
 
   // await runForkProcessServer()
   // await runSimpleExpress()
@@ -37,7 +53,7 @@ const main = async () => {
 
   // await createTaskMain()
 
-  // ramdaPlay()
+  ramdaPlay()
   // mqttPlay();
   // tcpServer();
   // netmask()

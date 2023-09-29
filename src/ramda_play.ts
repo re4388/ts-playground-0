@@ -10,6 +10,48 @@ interface Maintenance {
 
 export function ramdaPlay() {
 
+  console.log("=====> R.isNil(''): ", R.isNil(''));
+
+  //////////////////////////////////////////////////////////////////////////////////////////
+
+  // deep 表示可以處理 nest
+// mergeRight 的 right 表示, 把右邊 merge到左邊的 default
+//   R.mergeDeepRight(
+//     {
+//       name: 'fred',
+//       age: 10,
+//       contact: {
+//         email: 'moo@example.com'
+//       }
+//     },
+//     {
+//       age: 40,
+//       contact: {
+//         email: 'baa@example.com'
+//       }
+//     }
+//   );
+
+//=> { name: 'fred', age: 40, contact: { email: 'baa@example.com' }}
+
+// wemo code example
+// 把傳入的  body merge 到 左邊的 default, pick(DEFAULT_UPDATE_FIELDS, quest)
+// quest is the data quired from DB and we use pick to only get the fields we want
+// so, this entity will be the updated entity `patched` by the body
+//   const entity = mergeDeepRight(pick(DEFAULT_UPDATE_FIELDS, quest), body)
+
+
+
+// 以把左邊 merge 到右邊當做 default
+// 亦即，把左的當做新增的，overwrite 右邊的 default
+//   R.mergeLeft(
+//     { 'age': 40 },
+//     { 'name': 'fred', 'age': 10 }
+//   );
+//=> { 'name': 'fred', 'age': 40 }
+
+
+
   //////////////////////////////////////////////////////////////////////////////////////////
 
   //
@@ -114,35 +156,30 @@ export function ramdaPlay() {
 
   //////////////////////////////////////////////////////////////////////////
 
-  // const response = {
-  //   data: [
-  //     {
-  //       id: 'id-1',
-  //       scooterId: 'qat-001',
-  //       itemId: 'item-001',
-  //       createdAt: new Date(),
-  //       verifiedAt: new Date()
-  //     },
-  //     {
-  //       id: 'id-2',
-  //       scooterId: 'qat-002',
-  //       itemId: 'item-002',
-  //       createdAt: new Date(),
-  //       verifiedAt: new Date()
-  //     }
-  //   ]
-  // }
+
+
+
+
+  //  evolve => 可以針對每一個 obj 給定一個 transform 邏輯
   //
-  // const maintenances = response.data.map((maintenance: Maintenance) =>
-  //   R.pipe(
-  //     R.pick(['id', 'scooterId', 'itemId']),
-  //     R.evolve({
-  //       id: (id) => id + ' postfix',
-  //       createdAt: (createdAt) => createdAt.toISOString(),
-  //       verifiedAt: (verifiedAt) => (verifiedAt ? verifiedAt.toISOString() : '')
-  //     })
-  //   )(maintenance)
-  // )
   //
-  // console.log('maintenances', maintenances)
+  // const tomato = {
+  //   firstName: '  Tomato ',
+  //   data: {
+  //     elapsed: 100,
+  //     remaining: 1400
+  //   },
+  //   id:123
+  // };
+  //
+  // const transformations = {
+  //   firstName: R.trim,
+  //   lastName: R.trim, // Will not get invoked, 因為傳入的 obj 沒有這個屬性
+  //   data: {elapsed: R.add(1), remaining: R.add(-1)}
+  // };
+  //
+  // R.evolve(transformations, tomato);
+  // => {firstName: 'Tomato', data: {elapsed: 101, remaining: 1399}, id:123}
 }
+
+

@@ -29,7 +29,7 @@ export class taskManager extends EventEmitter {
     // use process pool to get a process
     const childProc = (await pool.acquire()) as ChildProcess
 
-    // send stuff to child process (single file that one, which represent a separate proc)
+    // send data to child process (single file that one, which represent a separate proc)
     childProc.send({sum: this.sum, set: this.set})
 
     // when we receive event..

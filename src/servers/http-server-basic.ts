@@ -1,14 +1,10 @@
 import http from 'http'
-import yargs from 'yargs/yargs'
-import { hideBin } from 'yargs/helpers'
-
-const argv: any = yargs(hideBin(process.argv)).argv
-
-// .xxxx.ts --port=3001
-const http_server_port = argv.port
+const http_server_port= 3001
 let httpServer = http.createServer((req, res) => {
   switch (req.url) {
     case '/':
+      const remoteAddress = req.connection.remoteAddress;
+      console.log('Incoming request from:', remoteAddress);
       res.writeHead(200, { 'Content-Type': 'text/html' })
       res.end(`<html><body><p>${http_server_port}</p></body></html>`)
       break

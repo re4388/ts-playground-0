@@ -1,4 +1,4 @@
-export class TaskQueue {
+export class TaskQueueV2 {
   constructor (concurrency) {
     this.concurrency = concurrency
     this.running = 0

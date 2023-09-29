@@ -1,25 +1,17 @@
-The Circuit Breaker pattern is a software design pattern used in distributed systems to improve the resilience and fault tolerance of applications that rely on remote services or resources. It helps prevent cascading failures and provides a fallback mechanism when failures occur.
+断路器模式是一种在分布式系统中使用的软件设计模式，用于提高依赖于远程服务或资源的应用程序的弹性和容错性。它有助于防止级联故障，并在发生故障时提供备用机制。
 
-In traditional electrical circuit breakers, when a fault or overload occurs, the circuit breaker trips and stops the flow of electricity, protecting the electrical system. Similarly, in software, the Circuit Breaker pattern monitors requests to a remote service and, if a certain threshold of failures is reached, it "trips" and stops making further requests to that service for a specified period. This avoids overloading a faulty or unresponsive service and allows it to recover.
+在传统的电气断路器中，当发生故障或过载时，断路器会跳闸停止电流流动，保护电气系统。类似地，在软件中，断路器模式监视对远程服务的请求，如果达到一定的故障阈值，它会“跳闸”并在指定的时间内停止向该服务发出进一步的请求。这避免了对有故障或无响应的服务过载，并允许其恢复。
 
-Here's how the Circuit Breaker pattern typically works:
+以下是断路器模式的典型工作方式：
 
-1. Closed State: Initially, the Circuit Breaker is in a closed state, allowing requests to pass through to the remote service as normal.
+关闭状态：最初，断路器处于关闭状态，允许请求正常传递到远程服务。
+故障检测：断路器监视远程服务的响应。如果在定义的时间窗口内发生一定数量的故障或错误，它将将其视为故障并进入下一个状态。
+打开状态：当断路器进入打开状态时，它停止允许请求通过。相反，它立即返回预定义的备用响应，例如错误消息或缓存数据。这避免了等待超时或进一步不成功的尝试，提高了应用程序的响应性。
+半开状态：在指定的一段时间后，断路器转换到半开状态。在这种状态下，它允许有限数量的请求传递到远程服务，以检查其是否已恢复。如果这些请求成功，断路器将回到关闭状态。否则，如果任何请求失败，它将返回到打开状态。
+断路器模式提供了多个优点：
 
-2. Failure Detection: The Circuit Breaker monitors the responses from the remote service. If a certain number of failures or errors occur within a defined time window, it interprets this as a failure and moves to the next state.
-
-3. Open State: When the Circuit Breaker enters the open state, it stops allowing requests to pass through. Instead, it immediately returns a pre-defined fallback response, such as an error message or cached data. This avoids waiting for timeouts or further unsuccessful attempts, improving application responsiveness.
-
-4. Half-Open State: After a specified period of time, the Circuit Breaker transitions to the half-open state. In this state, it allows a limited number of requests to pass through to the remote service to check if it has recovered. If these requests are successful, the Circuit Breaker moves back to the closed state. Otherwise, if any of the requests fail, it returns to the open state.
-
-The Circuit Breaker pattern provides several benefits:
-
-- Fault Isolation: It isolates failures in remote services, preventing them from propagating through the entire system and causing cascading failures.
-
-- Graceful Degradation: By providing a fallback response, it allows applications to continue functioning to some extent even when a remote service is unavailable.
-
-- Automatic Recovery: The Circuit Breaker periodically retries the remote service to check if it has recovered, gradually restoring normal operation.
-
-- Real-time Monitoring: It provides insights into the health and availability of remote services by tracking the number of failures and open/closed states.
-
-The Circuit Breaker pattern is commonly used in microservices architectures, where services interact with each other over networks, but it can also be applied in various distributed systems scenarios to improve overall system resilience.
+故障隔离：它隔离了远程服务的故障，防止它们通过整个系统传播并导致级联故障。
+优雅降级：通过提供备用响应，即使远程服务不可用，也允许应用程序在某种程度上继续运行。
+自动恢复：断路器定期重试远程服务，以检查其是否已恢复，逐渐恢复正常运行。
+实时监控：通过跟踪故障数量和打开/关闭状态，它提供了有关远程服务的健康状况和可用性的洞察。
+断路器模式通常在微服务架构中广泛使用，在该架构中，各个服务通过网络相互交互，但它也可以应用于各种分布式系统场景，以提高整体系统的弹性。

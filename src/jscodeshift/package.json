@@ -1,0 +1,17 @@
+{
+  "name": "typeorm20",
+  "version": "1.0.0",
+  "description": "",
+  "main": "db/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/jscodeshift": "^0.11.6",
+    "jscodeshift-helper": "^1.1.0",
+    "typeorm": "^0.2.19"
+  }
+}

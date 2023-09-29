@@ -13,20 +13,22 @@ interface Waiting {
 //  to prevent exposing the application to denial-of-service (DoS) attacks.
 export class ProcessPool {
 
+
+
   private readonly file
-  private readonly poolMax
-  private pool: ChildProcess[]
+  private readonly concurrentNumber
+  private available: ChildProcess[]
   private active: ChildProcess[]
   private waiting: Waiting[]
 
-  constructor(file: string, poolMax: number) {
+  constructor(file: string, concurrentNumber: number) {
     this.file = file
-    this.poolMax = poolMax
+    this.concurrentNumber = concurrentNumber
 
     // pool is the set of running processes ready to be used.
     // 1. when you want to run, pop proc from here
     // 2. when you run is done, push back proc to here
-    this.pool = []
+    this.available = []
 
     // active contains the list of the processes currently being used.
     // when we receive the child proc said it is ready, we push to here
@@ -48,30 +50,28 @@ export class ProcessPool {
     // why we wrap a promise here?
     // since we have some event listening logic inside, are these are async operations
     // so we need to wrap all logic into this promise ctor and allow the caller to `await` it
-    return new Promise((resolve, reject) => {
+    return new Promise((resolveCb, rejectCb) => {
 
       let child: ChildProcess
 
       // If we have a process in the pool ready to be used, we simply move process to
       // the active list and then use process to fulfill the outer promise with resolve() cb.
       // so when the promise settle the resolve call back will invoke
-      if (this.pool.length > 0) {
-        child = this.pool.pop() as ChildProcess
+      if (this.available.length > 0) {
+        child = this.available.pop() as ChildProcess
         this.active.push(child)
 
-        // we send back a resolve cb, and carry the process
-        // so, when resolve, we get the resolved child process
-        // why we put child proc as arg for resolve?
-        // something you want the caller to get after `await`, you put it as arg in resolve cb
-        return resolve(child)
+        // use resolveCb to return the child process to the caller
+        // that is why we can get `childProc` from below line
+        // `const childProc = await pool.acquire()
+        return resolveCb(child)
       }
 
       // If there are no available processes in the pool and we have already reached
-      // the maximum number of running processes, we have to wait for one to be available.
-      // We achieve this by queuing the resolve() and reject() callbacks of the outer promise,
-      // for later use.
-      if (this.active.length >= this.poolMax) {
-        return this.waiting.push({ resolve, reject })
+      // the maximum number of allowed running processes, we have to wait for one to be available.
+      // We achieve this by queuing a obj which containing the resolve() and reject() callbacks
+      if (this.active.length >= this.concurrentNumber) {
+        return this.waiting.push({ resolve: resolveCb, reject: rejectCb })
       }
 
       // If we haven't reached the maximum number of running processes yet,
@@ -89,20 +89,21 @@ export class ProcessPool {
       // This message-based channel is automatically provided with all processes started with child_ process.fork().
       // PS: message is the builtin event which trigger when the one-file child proc call process.send
       child.once('message', message => {
+
         if (message === 'ready') {
           this.active.push(child)
-          return resolve(child)
+          return resolveCb(child)
         }
 
         child.kill()
-        reject(new Error('Improper process start'))
+        rejectCb(new Error('Improper process start'))
       })
 
       // handle exit event
       child.once('exit', code => {
         console.log(`Worker exited with code ${code}`)
         this.active = this.active.filter(w => child !== w)
-        this.pool = this.pool.filter(w => child !== w)
+        this.available = this.available.filter(w => child !== w)
       })
 
 
@@ -113,12 +114,16 @@ export class ProcessPool {
   // whose purpose is to put a process back into the pool once we are done with it:
   release(childProc: ChildProcess) {
 
+    // 如果有 proc 在 waiting list, 拿出來，可以 resolve了
     if (this.waiting.length > 0) {
       const waiting  = this.waiting.shift()
       return waiting?.resolve(childProc)
     }
 
-    this.active = this.active.filter(w => childProc !== w)
-    this.pool.push(childProc)
+    // 更新一下目前活躍的 proc
+    this.active = this.active.filter(proc => childProc !== proc)
+
+    // 推入 pool
+    this.available.push(childProc)
   }
 }

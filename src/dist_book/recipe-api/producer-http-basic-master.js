@@ -21,7 +21,8 @@ cluster
   })
   .on('exit', (worker, code, signal) => {
     console.log('exit', worker.id, code, signal)
-    // Uncomment this to make workers difficult to kill.
+    // with this line, after kill <pid> trigger this event, child process will be fork again
+    // so the only way to permanently kill the children is to kill the master.
     // cluster.fork();
   })
   .on('listening', (worker, { address, port }) => {

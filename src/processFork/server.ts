@@ -22,15 +22,15 @@ export async function runForkProcessServer() {
       res.writeHead(200)
 
 
-      const subsetSum = new taskManager(Number(sum), data)
-      subsetSum.on('match', match => {
+      const task = new taskManager(Number(sum), data)
+      task.on('match', match => {
           res.write(`Match: ${JSON.stringify(match)}\n`)
         }
       )
-      subsetSum.on('end', () => res.end())
+      task.on('end', () => res.end())
 
 
-      subsetSum.start()
+      task.start()
 
     }).listen(port, () => {
       console.log(`server start at port ${port}`)

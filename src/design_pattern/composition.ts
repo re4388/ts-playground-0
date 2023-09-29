@@ -26,7 +26,7 @@ class Shape {
 
   // reuse part
   renderShape(): void {
-    this.renderer.render();
+    this.renderer.render()
   }
 }
 

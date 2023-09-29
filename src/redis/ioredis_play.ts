@@ -5,6 +5,9 @@
 // but will be deprecated in the next major version.
 import Redis from "ioredis";
 
+ioredis_play()
+
+
 export async function ioredis_play() {
   // Create a Redis instance.
   // By default, it will connect to localhost:6379.
@@ -21,7 +24,7 @@ export async function ioredis_play() {
   // so technically ioredis supports all Redis commands.
   // The format is: redis[SOME_REDIS_COMMAND_IN_LOWERCASE](ARGUMENTS_ARE_JOINED_INTO_COMMAND_STRING)
   // so the following statement is equivalent to the CLI: `redis> SET mykey hello EX 10`
-  redis.set("mykey2", "hello2", "EX", 10);
+  redis.set("mykey2", "hello2", "EX", 70);
 
   // redis.zadd("sortedSet", 1, "one", 2, "dos", 4, "quatro", 3, "three");
   // redis.zrange("sortedSet", 0, 2, "WITHSCORES").then((elements) => {

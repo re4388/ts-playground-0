@@ -26,40 +26,41 @@ interface Payment {
 // 1. 根據 interface 去實作不同的策略
 class CreditCard implements Payment {
   pay(amount: number): void {
-    console.log(`Paid ${amount} using credit card.`);
+    console.log(`Paid ${amount} using credit card.`)
   }
 }
 
 class PayPalPay implements Payment {
   pay(amount: number): void {
-    console.log(`Paid ${amount} using PayPal.`);
+    console.log(`Paid ${amount} using PayPal.`)
   }
 }
 
 class Checkout {
-  private payment: Payment;
+  private payment: Payment
 
   constructor(payment: Payment) {
-    this.payment = payment;
+    this.payment = payment
   }
 
   setPayment(payment: Payment) {
-    this.payment = payment;
+    this.payment = payment
   }
 
   public pay(amount: number): void {
-    this.payment.pay(amount);
+    this.payment.pay(amount)
   }
 }
 
+
 // 3. 根據情況，想要用那種payment都可以用
+const payPal = new PayPalPay()
+const checkout = new Checkout(payPal)
+checkout.pay(50)
 
-const payPal = new PayPalPay();
-const checkout = new Checkout(payPal);
-checkout.pay(50);
+const creditCard = new CreditCard()
+const checkout1 = new Checkout(creditCard)
+checkout1.pay(50)
 
-const creditCard = new CreditCard();
-const checkout1 = new Checkout(creditCard);
-checkout1.pay(50);
 
-export {};
+export {}

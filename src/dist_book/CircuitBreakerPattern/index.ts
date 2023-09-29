@@ -57,7 +57,7 @@ class CircuitBreaker {
 }
 
 // Usage example
-const circuitBreaker = new CircuitBreaker(3, 5000); // Failure threshold: 3, Retry timeout: 5 seconds
+const circuitBreaker = new CircuitBreaker(5, 5000); // Failure threshold: 3, Retry timeout: 5 seconds
 
 // Making requests using the Circuit Breaker
 circuitBreaker.executeRequest('https://api.example.com/users')
