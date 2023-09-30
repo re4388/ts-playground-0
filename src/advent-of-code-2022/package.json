@@ -1,0 +1,12 @@
+{
+  "name": "advent-of-code-2022",
+  "version": "1.0.0",
+  "description": "https://advent-of-code-blog.vercel.app/solutions/advent-of-code-2022/day1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

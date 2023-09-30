@@ -142,13 +142,13 @@ function kql_MoreThan(date: Date) {
 
 
 
-findOneByIdV4({
-  where: {
-    id: '201212',
-    subscriptionDay: 23,
-    expiredAt: kql_MoreThan(new Date())
-  }
-})
+// findOneByIdV4({
+//   where: {
+//     id: '201212',
+//     subscriptionDay: 23,
+//     expiredAt: kql_MoreThan(new Date())
+//   }
+// })
 
 
 // await db.term.findOne({ where: { id: termId, beginAt: MoreThan(new Date()) } })

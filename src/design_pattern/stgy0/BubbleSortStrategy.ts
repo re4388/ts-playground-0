@@ -1,5 +1,5 @@
 import { Sorting } from './interface'
-import { QuickSortStrategy } from './QuickSortStrategy'
+// import { QuickSortStrategy } from './QuickSortStrategy'
 
 class BubbleSortStrategy implements Sorting {
   sort(data: number[]): number[] {
