@@ -2,7 +2,7 @@ const block = new Netmask(faker.random.arrayElement([every8dNetWork, weMoNetWork
 
 const randomIdx = Math.floor(Math.random() * 2)
 
-const allAllowedIps: string[] = []
+const allAllowedIps = []
 
 block.forEach((ip, _long, _idx) => {
   allAllowedIps.push(ip)
