@@ -91,7 +91,7 @@ const storageHook = createHook({
   },
 });
 
-run(store, callback, ...args) {
+main(store, callback, ...args) {
   // 把当前 AsyncLocalStorage 加入队列
   ArrayPrototypePush(storageList, this);
   // 启动 AsyncHooks
