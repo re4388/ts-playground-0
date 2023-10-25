@@ -52,7 +52,7 @@
     "node-fetch": "^3.3.2",
     "node-sql-parser": "^4.8.0",
     "p-map": "^6.0.0",
-    "pg": "^8.11.0",
+    "pg": "^8.11.3",
     "pgsql-ast-parser": "^11.1.0",
     "pumpify": "^2.0.1",
     "ramda": "^0.29.0",
@@ -72,6 +72,7 @@
     "@faker-js/faker": "^8.0.1",
     "@types/faker": "^4.1.10",
     "@types/node": "^20.1.4",
+    "@types/pg": "^8.10.7",
     "nodemon": "^2.0.22",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.4"

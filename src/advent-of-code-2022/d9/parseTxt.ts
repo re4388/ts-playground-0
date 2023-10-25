@@ -33,7 +33,7 @@ export async function genArray() {
   let last_h_move = []
 
   try {
-    const filePath = 'a2.txt'
+    const filePath = 'a1.txt'
     const lineReader = new LineReader(filePath)
 
     for await (const line of lineReader.processFile()) {
@@ -117,7 +117,7 @@ export async function genArray() {
 
 
 
-
+        //
         runMatrix(H_move_arr[move], 'H')
         runMatrix(T_move_arr[move], 'T')
 
@@ -148,11 +148,10 @@ export async function genArray() {
 
   // console.log(H_move_arr)
   // return H_move_arr
-  // return [H_move_arr, T_move_arr]
+  return [H_move_arr, T_move_arr]
 
 }
 
 
-genArray()
 
 

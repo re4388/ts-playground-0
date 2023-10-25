@@ -1,38 +1,41 @@
 
 
-let rows = 100
-let cols = 100
-// let rows = 15
-// let cols = 15
 
 
 
 
-
-const H_steps = [
-  [4, 0],
-  [4, 1],
-  [4, 2],
-  [4, 3],
-  [4, 4],
-]
+// const H_steps = [
+//   [4, 0],
+//   [4, 1],
+//   [4, 2],
+//   [4, 3],
+//   [4, 4],
+// ]
 
 
 // drawGUI()
 
 
 
-export async function drawGUI() {
+// export async function drawGUI() {
   // const [H_steps, T_steps] = await genArray()
-  for (let i = 0; i < H_steps.length; i++) {
+  // for (let i = 0; i < H_steps.length; i++) {
     // console.log(`step ${i}`)
 
     // runMatrix(H_steps[i], 'H')
     // runMatrix(T_steps[i], 'T')
 
-    console.log('\n')
-  }
-}
+//     console.log('\n')
+//   }
+// }
+
+
+
+let rows = 6
+let cols = 6
+// let rows = 15
+// let cols = 15
+
 
 export function runMatrix(H_pos: number[], symbol: string) {
 
