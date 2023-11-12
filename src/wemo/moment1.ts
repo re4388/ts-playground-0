@@ -1,5 +1,26 @@
-// import moment from 'moment'
+// import moment from 'moment-timezone'
+// //
 //
+//
+// const now = moment().tz('Asia/Taipei')
+// console.log("=====> now: ", now);
+//
+// now.date()
+// const isFirstDayOfMonth = now.date() === 1
+// console.log("=====> now.date(): ", now.date());
+// console.log("=====> isFirstDayOfMonth: ", isFirstDayOfMonth);
+
+
+
+
+import moment from 'moment'
+const mockDate = new Date('2020-07-2 09:20:00Z')
+console.log('q1', moment(mockDate).utc())
+
+
+
+
+
 //
 //
 // let now = moment().toISOString()
@@ -78,30 +99,30 @@ interface parseSchemaResult {
  *    { column: "statisticAt", type: "TIMESTAMP" },
  *  ]
  */
-let colsAndTypeList = parseKqlSchema(
-  "`id` STRING KEY, `subscriptionDay` INTEGER, `tripCount` INTEGER, `statisticAt` TIMESTAMP"
-)  as parseSchemaResult[]
-
-let res:{[p: string]: string} = {}
-for (let i = 0; i < colsAndTypeList.length; i++) {
-  let key = colsAndTypeList[i].column
-  // @ts-ignore
-  res[key] = typeCovert(colsAndTypeList[i].type, cols[i])
-}
-
-console.log('res', res)
-
-
-
-for (const colsAndType of colsAndTypeList) {
-  console.log("colsAndType", colsAndType);
-}
-
-function parseKqlSchema(schema: string): ({ [key: string]: string; } | undefined)[] {
-  return schema
-    .split(",")
-    .map(
-      (s) =>
-        /`(?<column>\w+)`\s+(?<type>STRING|INTEGER|TIMESTAMP)/.exec(s)?.groups
-    );
-}
+// let colsAndTypeList = parseKqlSchema(
+//   "`id` STRING KEY, `subscriptionDay` INTEGER, `tripCount` INTEGER, `statisticAt` TIMESTAMP"
+// )  as parseSchemaResult[]
+//
+// let res:{[p: string]: string} = {}
+// for (let i = 0; i < colsAndTypeList.length; i++) {
+//   let key = colsAndTypeList[i].column
+//   // @ts-ignore
+//   res[key] = typeCovert(colsAndTypeList[i].type, cols[i])
+// }
+//
+// console.log('res', res)
+//
+//
+//
+// for (const colsAndType of colsAndTypeList) {
+//   console.log("colsAndType", colsAndType);
+// }
+//
+// function parseKqlSchema(schema: string): ({ [key: string]: string; } | undefined)[] {
+//   return schema
+//     .split(",")
+//     .map(
+//       (s) =>
+//         /`(?<column>\w+)`\s+(?<type>STRING|INTEGER|TIMESTAMP)/.exec(s)?.groups
+//     );
+// }

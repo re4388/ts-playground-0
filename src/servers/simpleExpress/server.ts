@@ -15,7 +15,7 @@ export async function runSimpleExpress() {
     app.use('/', health)
 
     app.listen(3111, async () => {
-      debugger
+      // debugger
       console.log('Server is running at http://localhost:3111')
     })
 
