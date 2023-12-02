@@ -27,6 +27,15 @@ import { run_main_drizzle } from './orm/drizzle'
 
 // import { Innertube } from 'youtubei.js';
 
+console.log('c')
+console.log('c')
+console.log('c')
+console.log('c')
+console.log('c')
+console.log('c')
+console.log('c')
+console.log('c')
+console.log('c')
 
 const main = async () => {
 
