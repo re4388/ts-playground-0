@@ -1,0 +1,8 @@
+@namespace("wemo.example")
+protocol TransactionProtocol {
+	record Transaction {
+		int amount;
+		@logicalType("timestamp-millis")
+		long time;
+	}
+}

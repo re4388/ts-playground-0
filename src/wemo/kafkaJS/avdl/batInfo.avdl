@@ -1,0 +1,9 @@
+@namespace("bb.updateBoxMessage")
+protocol UpdateBoxMessage {
+	record Record {
+		string batId;
+		union { null, int } batPercent = null;
+		union { null, string } batFcc = null;
+		array<union { null, int }> batCellVol = [];
+	}
+}
