@@ -1,0 +1,27 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1702777375519,
+      "tag": "0000_peaceful_namorita",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1702777814460,
+      "tag": "0001_eager_the_fallen",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1702780530888,
+      "tag": "0002_goofy_speed",
+      "breakpoints": true
+    }
+  ]
+}

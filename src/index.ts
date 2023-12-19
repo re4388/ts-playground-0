@@ -23,11 +23,14 @@ import { createTaskMain } from './dp_book/task_pattern/task1'
 import { readBuffer } from './stream/readable2'
 // import { runParser } from './psql_paser/p1'
 import { runParserP2 } from './psql_paser/p2'
+import { run_main_drizzle } from './orm/drizzle'
 
 // import { Innertube } from 'youtubei.js';
 
 
 const main = async () => {
+
+  await run_main_drizzle()
 
   // const youtube = await Innertube.create(/* options */);
   // const info = await youtube.getLibrary()
@@ -46,7 +49,7 @@ const main = async () => {
   // momentPlay()
 
   // await runForkProcessServer()
-  await runSimpleExpress()
+  // await runSimpleExpress()
 
   // await readBuffer()
   // run_Correlation_Id_pattern_MAIN().catch(err => console.error(err))

@@ -1,6 +1,10 @@
 import * as _faker from 'faker'
+// import { nanoid } from 'nanoid'
+
+
 
 export function run_facker() {
+
 
   for (let i = 0; i < 100; i++) {
     // console.log(_faker.random.number({ max: 20, min: 10 }))
