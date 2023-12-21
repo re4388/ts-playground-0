@@ -4,7 +4,9 @@
 
 
 export function statement(invoice, plays) {
-  const data = {}
+  // Split Phase
+  // 這邊拆 format and calculation
+  const data = {} // <- setup intermediate object
   data.customer = invoice.customer
   data.performances = invoice.performances
   return renderPlaintText(data, plays)

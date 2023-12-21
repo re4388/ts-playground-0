@@ -8,13 +8,14 @@ export function statement(invoice, plays) {
 
 
   for (let perf of invoice.performances) {
+
+    // replace tmp with query
+    // 用 fn 的方法 取代 暫時變數
+    // getAmount 就不用傳進去了
     let thisAmount = getAmount(perf)
 
-// add volume credits
     volumeCredits += Math.max(perf.audience - 30, 0)
-// add extra credit for every ten comedy attendees
     if ('comedy' === getPlay(perf).type) volumeCredits += Math.floor(perf.audience / 5)
-// print line for this order
     result += ` ${getPlay(perf).name}: ${format(thisAmount / 100)} (${perf.audience} seats)\n`
     totalAmount += thisAmount
   }
@@ -31,6 +32,8 @@ export function statement(invoice, plays) {
 
   function getAmount(perf) {
     let res = 0
+
+    // 使用 inline variable
     switch (getPlay(perf).type) {
       case 'tragedy':
         res = 40000

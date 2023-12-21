@@ -1,5 +1,8 @@
 import createStatementData from './createStatementData.mjs'
 
+
+// 拆檔案: 把資料處理和資料顯示方開
+
 export function statement(invoice, plays) {
   return renderPlainText(createStatementData(invoice, plays))
 }
@@ -33,8 +36,7 @@ function renderHtml(data) {
 }
 
 function usd(aNumber) {
-  return new Intl.NumberFormat('en-US',
-    {
+  return new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
       minimumFractionDigits: 2

@@ -4,16 +4,17 @@ export function statement(invoice, plays) {
 
 
   let volumeCredits = 0
-  let totalAmount = 0
 
 
 
+  // 使用 split loop
   for (let perf of invoice.performances) {
     result += ` ${getPlay(perf).name}: ${usd(getAmount(perf))} (${perf.audience} seats)\n`
   }
 
 
-
+  // 使用 slide statement
+  let totalAmount = 0
   for (let perf of invoice.performances) {
     totalAmount += getAmount(perf)
   }

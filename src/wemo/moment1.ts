@@ -14,8 +14,12 @@
 
 
 import moment from 'moment'
-const mockDate = new Date('2020-07-2 09:20:00Z')
-console.log('q1', moment(mockDate).utc())
+let a1 = moment().utc().toDate()
+console.log("------->a1: ", a1);
+let a2 = moment.utc().toDate()
+console.log("------->a2: ", a2);
+// const mockDate = new Date('2020-07-2 09:20:00Z')
+// console.log('q1', moment(mockDate).utc())
 
 
 

@@ -1,8 +1,3 @@
-
-
-
-
-
 export function statement(invoice, plays) {
   const data = {}
   data.customer = invoice.customer
@@ -12,17 +7,18 @@ export function statement(invoice, plays) {
 
   function enrichPerformance(aPerf) {
     const aPerfCopy = Object.assign({}, aPerf)
+
+    // 使用move function 移動 function
     aPerfCopy.play = getPlay(aPerfCopy)
     return aPerfCopy
   }
 
 
-  function getPlay(aPerf){
+  function getPlay(aPerf) {
     return plays[aPerf.playID]
   }
 
 }
-
 
 
 function renderPlaintText(data, plays) {
@@ -60,7 +56,7 @@ function renderPlaintText(data, plays) {
 
   function usd(amount) {
     return new Intl.NumberFormat('en-US',
-      { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }).format(amount/100)
+      { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }).format(amount / 100)
   }
 
 

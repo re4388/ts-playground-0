@@ -1,45 +1,65 @@
-
-
-
+// 把資料處理和資料顯示分開
 
 export function htmlStatement(invoice, plays) {
   return renderHtml(createStatementData(invoice, plays))
 }
 
 
-
-function renderHtml (data) {
-  let result = `<h1>Statement for ${data.customer}</h1>\n`; result += "<table>\n";
-  result += "<tr><th>play</th><th>seats</th><th>cost</th></tr>"; for (let perf of data.performances) {
-    result += ` <tr><td>${perf.play.name}</td><td>${perf.audience}</td>`;
-    result += `<td>${usd(perf.amount)}</td></tr>\n`; }
-  result += "</table>\n";
-  result += `<p>Amount owed is <em>${usd(data.totalAmount)}</em></p>\n`; result += `<p>You earned <em>${data.totalVolumeCredits}</em> credits</p>\n`; return result;
+function renderHtml(data) {
+  let result = `<h1>Statement for ${data.customer}</h1>\n`
+  result += '<table>\n'
+  result += '<tr><th>play</th><th>seats</th><th>cost</th></tr>'
+  for (let perf of data.performances) {
+    result += ` <tr><td>${perf.play.name}</td><td>${perf.audience}</td>`
+    result += `<td>${usd(perf.amount)}</td></tr>\n`
+  }
+  result += '</table>\n'
+  result += `<p>Amount owed is <em>${usd(data.totalAmount)}</em></p>\n`
+  result += `<p>You earned <em>${data.totalVolumeCredits}</em> credits</p>\n`
+  return result
 }
 
+/////////////////////////////
 
 export function statement(invoice, plays) {
   return renderPlaintText(createStatementData(invoice, plays))
+}
 
 
-  function createStatementData(invoice, plays) {
-    const data = {}
-    data.customer = invoice.customer
-    data.performances = invoice.performances.map(enrichPerformance)
-    data.totalAmount = totalAmount(data)
-    data.totalVolumeCredits = totalVolumeCredits(data)
+function renderPlaintText(data) {
+  let res = `Statement for ${data.customer}\n`
 
-    return data
+  for (let perf of data.performances) {
+    res += ` ${perf.play.name}: ${usd(perf.amount)} (${perf.audience} seats)\n`
+  }
+
+  res += `Amount owed is ${usd(data.totalAmount)}\n`
+  res += `You earned ${data.totalVolumeCredits} credits\n`
+  return res
+}
+
+
+function createStatementData(invoice, plays) {
+  const data = {}
+  data.customer = invoice.customer
+  data.performances = invoice.performances.map(enrichPerformance)
+  data.totalAmount = totalAmount(data)
+  data.totalVolumeCredits = totalVolumeCredits(data)
+
+  return data
+
+  function getPlay(aPerf) {
+    return plays[aPerf.playID]
   }
 
 
   function enrichPerformance(aPerf) {
-    const aPerfCopy = Object.assign({}, aPerf)
-    aPerfCopy.play = getPlay(aPerfCopy)
-    aPerfCopy.amount = getAmount(aPerfCopy)
-    aPerfCopy.volumeCredits = volumeCreditsFor(aPerfCopy)
+    const res = Object.assign({}, aPerf)
+    res.play = getPlay(res)
+    res.amount = getAmount(res)
+    res.volumeCredits = volumeCreditsFor(res)
 
-    return aPerfCopy
+    return res
   }
 
 
@@ -92,34 +112,13 @@ export function statement(invoice, plays) {
     }
     return res
   }
-
-  function getPlay(aPerf) {
-    return plays[aPerf.playID]
-  }
-
 }
 
 
-function renderPlaintText(data, plays) {
-  let res = `Statement for ${data.customer}\n`
-
-  for (let perf of data.performances) {
-    res += ` ${perf.play.name}: ${usd(perf.amount)} (${perf.audience} seats)\n`
-  }
-
-  res += `Amount owed is ${usd(data.totalAmount)}\n`
-  res += `You earned ${data.totalVolumeCredits} credits\n`
-  return res
-
-
-  function usd(amount) {
-    return new Intl.NumberFormat('en-US',
-      { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }).format(amount / 100)
-  }
-
-
+function usd(amount) {
+  return new Intl.NumberFormat('en-US',
+    { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }).format(amount / 100)
 }
-
 
 
 
