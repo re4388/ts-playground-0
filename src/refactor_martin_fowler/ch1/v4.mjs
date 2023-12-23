@@ -1,8 +1,5 @@
 export function statement(invoice, plays) {
-
   let result = `Statement for ${invoice.customer}\n`
-
-
   let volumeCredits = 0
 
 

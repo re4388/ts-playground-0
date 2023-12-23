@@ -10,6 +10,7 @@ export function statement(invoice, plays) {
     aPerfCopy.play = getPlay(aPerfCopy)
     aPerfCopy.amount = getAmount(aPerfCopy)
     aPerfCopy.volumeCredits = volumeCreditsFor(aPerfCopy)
+
     return aPerfCopy
   }
 

@@ -1,10 +1,13 @@
 export default function createStatementData(invoice, plays) {
+
+
   const result = {}
   result.customer = invoice.customer
   result.performances = invoice.performances.map(enrichPerformance)
   result.totalAmount = totalAmount(result)
   result.totalVolumeCredits = totalVolumeCredits(result)
   return result
+
 
   function enrichPerformance(aPerformance) {
     const result = Object.assign({}, aPerformance)
