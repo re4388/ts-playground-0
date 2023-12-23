@@ -5,6 +5,8 @@
 /.data/**
 
 
+.vscode
+
 # Logs
 logs
 *.log

@@ -1,7 +1,7 @@
 import assert from 'node:assert'
 
 
-// 整入這邊 的 map, 也可以開始使用 method from bird
+// 把 fn 整入這邊 的 map
 function plumages(birds) {
   return new Map(birds
     .map(b => createBird(b))
@@ -16,7 +16,6 @@ function speeds(birds) {
 }
 
 
-// 建立 factory fn
 function createBird(bird) {
   switch (bird.type) {
     case 'EuropeanSwallow':
@@ -33,8 +32,7 @@ function createBird(bird) {
 
 /**
  *  I can see that the superclass Bird isn’t strictly needed.
- *  In JavaScript, I don’t need a type hierarchy for polymorphism; as long as my objects implement the
- *  appropriately named methods, everything works fine.
+ *  In JavaScript, I don’t need a type hierarchy for polymorphism; as long as my objects implement the appropriately named methods, everything works fine.
  *  In this situation, however, I like to keep the unnecessary superclass as it helps explain the way the classes are related in the domain.
  */
 class Bird {
@@ -52,7 +50,7 @@ class Bird {
 }
 
 
-// 一個一個處理，先處理 EuropeanSwallow
+// 處理 airSpeedVelocity 的 override
 class EuropeanSwallow extends Bird {
   get plumage() {
     return 'average'

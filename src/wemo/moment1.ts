@@ -1,10 +1,30 @@
-// import moment from 'moment-timezone'
+import moment from 'moment-timezone'
 // //
 //
 //
-// const now = moment().tz('Asia/Taipei')
-// console.log("=====> now: ", now);
-//
+
+
+const nowUtc = moment().utc()
+console.log("------->nowUtc: ", nowUtc);
+// Moment<2023-12-22T07:31:19Z>
+
+const nowTaipei = moment().tz('Asia/Taipei')
+console.log("=====> nowTaipei: ", nowTaipei);
+// Moment<2023-12-22T15:31:19+08:00>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // now.date()
 // const isFirstDayOfMonth = now.date() === 1
 // console.log("=====> now.date(): ", now.date());
@@ -13,11 +33,11 @@
 
 
 
-import moment from 'moment'
-let a1 = moment().utc().toDate()
-console.log("------->a1: ", a1);
-let a2 = moment.utc().toDate()
-console.log("------->a2: ", a2);
+// import moment from 'moment'
+// let a1 = moment().utc().toDate()
+// console.log("------->a1: ", a1);
+// let a2 = moment.utc().toDate()
+// console.log("------->a2: ", a2);
 // const mockDate = new Date('2020-07-2 09:20:00Z')
 // console.log('q1', moment(mockDate).utc())
 

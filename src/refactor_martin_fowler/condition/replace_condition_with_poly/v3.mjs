@@ -10,7 +10,7 @@ function speeds(birds) {
 }
 
 
-// using Combine Functions into Class (144) on airSpeedVelocity and plumage
+
 
 function plumage(bird) {
   return createBird(bird).plumage
@@ -20,7 +20,6 @@ function airSpeedVelocity(bird) {
   return createBird(bird).airSpeedVelocity
 }
 
-// 建立 factory fn
 function createBird(bird) {
   switch (bird.type) {
     case 'EuropeanSwallow':
@@ -40,7 +39,7 @@ class Bird {
   }
 
   get plumage() {
-    return "unknown";
+    return "unknown"; // super class 這邊不需要了
   }
 
   get airSpeedVelocity() {
@@ -58,13 +57,14 @@ class Bird {
 }
 
 
-// 一個一個處理，先處理 EuropeanSwallow
 class EuropeanSwallow extends Bird {
   get plumage() {
     return 'average'
   }
 }
 
+// 把不同的 bird 的 subclass 都建立出來囉
+// 也先處理羽毛
 class AfricanSwallow extends Bird {
   get plumage() {
     return (this.numberOfCoconuts > 2) ? 'tired' : 'average'

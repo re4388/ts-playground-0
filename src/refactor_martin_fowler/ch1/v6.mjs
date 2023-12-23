@@ -1,8 +1,6 @@
 
 
 
-
-
 export function statement(invoice, plays) {
   // Split Phase
   // 這邊拆 format and calculation

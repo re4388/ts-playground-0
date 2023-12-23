@@ -1,6 +1,7 @@
 import assert from 'node:assert'
 
 
+
 function plumages(birds) {
   return new Map(birds.map(b => [b.name, plumage(b)]))
 }
@@ -10,7 +11,7 @@ function speeds(birds) {
 }
 
 
-// using Combine Functions into Class (144) on airSpeedVelocity and plumage
+
 
 function plumage(bird) {
   return createBird(bird).plumage
@@ -20,7 +21,7 @@ function airSpeedVelocity(bird) {
   return createBird(bird).airSpeedVelocity
 }
 
-// 建立 factory fn
+// 建立 factory fn，源頭這邊處理 switch case
 function createBird(bird) {
   switch (bird.type) {
     case 'EuropeanSwallow':
@@ -42,7 +43,7 @@ class Bird {
   get plumage() {
     switch (this.type) {
       case 'EuropeanSwallow':
-        throw "oops";
+        throw "oops";  // 下面 EuropeanSwallow sub class 建立，這邊可以 throw了
       case 'AfricanSwallow':
         return (this.numberOfCoconuts > 2) ? 'tired' : 'average'
       case 'NorwegianBlueParrot':
@@ -67,7 +68,7 @@ class Bird {
 }
 
 
-// 一個一個處理，先處理 EuropeanSwallow
+// 可以開始建立不同的 subclass，先處理 EuropeanSwallow
 class EuropeanSwallow extends Bird {
   get plumage() {
     return 'average'

@@ -6,8 +6,6 @@ export function statement(invoice, plays) {
   }
 
   res += `Amount owed is ${usd(totalAmount())}\n`
-
-  // replace tmp with query
   res += `You earned ${volumeCredits()} credits\n`
   return res
 

@@ -4,18 +4,13 @@ class PerformanceCalculator {
     this.play = aPlay
   }
 
-
   get amount() {
     throw new Error('subclass responsibility')
   }
 
-
   get volumeCredits() {
     return Math.max(this.performance.audience - 30, 0)
   }
-
-
-
 }
 
 // Replace Conditional with Polymorphism (272).
@@ -31,7 +26,6 @@ class TragedyCalculator extends PerformanceCalculator {
 
 class ComedyCalculator extends PerformanceCalculator {
 
-
   get amount() {
     let result = 30000
     if (this.performance.audience > 20) {
@@ -40,7 +34,6 @@ class ComedyCalculator extends PerformanceCalculator {
     result += 300 * this.performance.audience
     return result
   }
-
 
   get volumeCredits() {
     return super.volumeCredits + Math.floor(this.performance.audience / 5)

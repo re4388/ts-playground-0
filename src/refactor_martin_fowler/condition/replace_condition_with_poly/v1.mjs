@@ -12,7 +12,8 @@ function speeds(birds) {
 
 
 
-// using Combine Functions into Class (144) on airSpeedVelocity and plumage
+// 先使用 using Combine Functions into Class (144) on airSpeedVelocity and plumage
+// switch case 先整個搬到 class 中
 
 function plumage(bird) {
   return new Bird(bird).plumage
@@ -62,38 +63,36 @@ const data = [
     name: 'bird1',
     type: 'EuropeanSwallow',
     numberOfCoconuts: 2,
-    voltage:120,
+    voltage: 120,
     isNailed: true
   },
   {
     name: 'bird2',
     type: 'AfricanSwallow',
     numberOfCoconuts: 3,
-    voltage:90,
+    voltage: 90,
     isNailed: false
   },
   {
     name: 'bird3',
     type: 'NorwegianBlueParrot',
     numberOfCoconuts: 2,
-    voltage:120,
+    voltage: 120,
     isNailed: true
   }
 ]
 
 let res1 = plumages(data)
 let res2 = speeds(data)
-assert.deepEqual( mapToObject(res1), { bird1: 'average', bird2: 'tired', bird3: 'scorched' })
-assert.deepEqual( mapToObject(res2), { bird1: 35, bird2: 34, bird3: 0 }
+assert.deepEqual(mapToObject(res1), { bird1: 'average', bird2: 'tired', bird3: 'scorched' })
+assert.deepEqual(mapToObject(res2), { bird1: 35, bird2: 34, bird3: 0 }
 )
 
 
-
-
 function mapToObject(map) {
-  const obj = {};
+  const obj = {}
   for (const [key, value] of map) {
-    obj[key] = value;
+    obj[key] = value
   }
-  return obj;
+  return obj
 }
