@@ -13,6 +13,7 @@ function speeds(birds) {
 
 
 // 先使用 using Combine Functions into Class (144) on airSpeedVelocity and plumage
+// 建立class
 // switch case 先整個搬到 class 中
 
 function plumage(bird) {

@@ -21,3 +21,9 @@ function foundPerson(people) {
   const candidates = ['Don', 'John', 'Kent']
   return people.find(p => candidates.includes(p)) || ''
 }
+
+/**
+ * why?
+ *
+ * 發現更簡單易懂得的寫法，就應該取代掉
+ */

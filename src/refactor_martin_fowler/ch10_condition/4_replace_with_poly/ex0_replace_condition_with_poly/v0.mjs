@@ -1,9 +1,7 @@
 import assert from 'node:assert'
 
 
-
-
-// plumages, 羽毛
+// plumages, 鸟类羽毛
 function plumages(birds) {
   return new Map(birds.map(b => [b.name, plumage(b)]))
 }

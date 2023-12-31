@@ -1,6 +1,5 @@
 
 
-
 export function runRegex() {
   const regex = /'([a-z]+)'.+'(.+)'/;
   const input = 'table.addAuthEndpoint(3, { method: \'patch\', endpoint: \'/codes/:code\', controller: promotions.patchStatusByCode })';
@@ -15,3 +14,5 @@ export function runRegex() {
     console.log(`${httpMethod.toUpperCase()} ${path}`);
   }
 }
+
+export {}
