@@ -13,7 +13,7 @@ node server.mjs
 And then:
 
 ```
-node client.mjs a1
+node client.mjs ai_ts_test
 node client.mjs a2
 ```
 
