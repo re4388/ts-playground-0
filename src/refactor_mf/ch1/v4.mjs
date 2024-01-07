@@ -1,4 +1,8 @@
 export function statement(invoice, plays) {
+
+
+
+
   let result = `Statement for ${invoice.customer}\n`
   let volumeCredits = 0
 
@@ -27,11 +31,6 @@ export function statement(invoice, plays) {
   result += `Amount owed is ${usd(totalAmount)}\n`
   result += `You earned ${volumeCredits} credits\n`
   return result
-
-
-
-
-
 
 
   function usd(amount) {

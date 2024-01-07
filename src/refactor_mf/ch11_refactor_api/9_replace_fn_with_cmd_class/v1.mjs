@@ -1,5 +1,7 @@
-// begin by creating an empty class and then Move Function (198) to move the function into it.
+// begin by creating an empty class and then Move Function (198) to it.
 
+
+// command object 就是一個負責 execute 的 class
 function score(candidate, medicalExam, scoringGuide) {
   return new Score().execute(candidate, medicalExam, scoringGuide)
 }

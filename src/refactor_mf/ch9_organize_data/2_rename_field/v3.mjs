@@ -25,6 +25,7 @@ class Organization {
   }
 }
 
-// Now, callers of my constructor can use either name or title (with title taking precedence). I can now go through all constructor callers and change them one-by-one to use the new name.
+// Now, callers use either name or title (with title taking precedence).
+// I can now go through all constructor callers and change them one-by-one to use the new name.
 const organization = new Organization({ name: 'Acme Gooseberries2', country: 'CHINA' })
 const organization = new Organization({ title: 'Acme Gooseberries', country: 'GB' })

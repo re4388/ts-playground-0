@@ -1,5 +1,6 @@
 // from
 
+// 結果一樣的 條件，可以有機會整合起來，甚至抽成函數，明示其意義
 
 function f1() {
   if (anEmployee.seniority < 2) return 0

@@ -1,5 +1,8 @@
 
-// I want to change “name” to “title”. The object is widely used in the code base, and there are updates to the title in the code. So my first move is to apply Encapsulate Record (162).
+// I want to change “name” to “title”.
+// BUT..The object is widely used in the code base,
+// and there are updates to the title in the code.
+// So my first move is to apply Encapsulate Record (162).
 
 class Organization {
   constructor(data) {

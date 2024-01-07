@@ -1,3 +1,6 @@
+
+
+
 export function statement(invoice, plays) {
   let res = `Statement for ${invoice.customer}\n`
 

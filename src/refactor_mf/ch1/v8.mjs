@@ -7,7 +7,10 @@ export function statement(invoice, plays) {
 
   function enrichPerformance(aPerf) {
     const aPerfCopy = Object.assign({}, aPerf)
+
+    // 使用move function 移動 function
     aPerfCopy.play = getPlay(aPerfCopy)
+    // 繼續 enrich, 加上 amount and volumeCredits
     aPerfCopy.amount = getAmount(aPerfCopy)
     aPerfCopy.volumeCredits = volumeCreditsFor(aPerfCopy)
 

@@ -1,7 +1,7 @@
 export function statement(invoice, plays) {
   return renderPlaintText(createStatementData(invoice, plays))
 
-
+  // 把 enrich 的邏輯特別拉出一個函數
   function createStatementData(invoice, plays) {
     const data = {}
     data.customer = invoice.customer

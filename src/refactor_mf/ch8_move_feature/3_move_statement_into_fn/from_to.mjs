@@ -25,8 +25,11 @@ function photoData(aPhoto) {
 /**
  * why
  *
+ * inverse of: Move Statements to Callers (217)
+ *
  * Removing duplication is one of the best rules of thumb of healthy code.
  * If I see the same code executed every time I call a particular function, I look to combine that repeating code into the function itself.
+ *
  * That way, any future modifications to the repeating code can be done in one place and used by all the callers.
  * Should the code vary in the future, I can easily move it (or some of it) out again with Move Statements to Callers (217).
  *

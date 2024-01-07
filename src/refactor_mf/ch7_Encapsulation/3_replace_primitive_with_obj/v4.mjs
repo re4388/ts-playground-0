@@ -5,7 +5,8 @@ class Order {
   }
 
 
-  // Now that I have a priority class, I find the current getter on the order to be misleading. It doesn’t return the priority—but a string that describes the priority. My immediate move is to use Rename Function (124).
+  // Now that I have a priority class, I find the current getter on the order to be misleading. It doesn’t return the priority
+  // but a string that describes the priority. My immediate move is to use Rename Function (124).
   get priorityString() {
     return this._priority.toString()
   }

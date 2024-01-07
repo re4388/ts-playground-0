@@ -2,6 +2,7 @@
 
 class Organization {
   constructor(data) {
+    // 先改內部， client no effect
     this._title = data.name
     this._country = data.country
   }

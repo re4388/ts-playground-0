@@ -1,6 +1,6 @@
 // 簡單說就是把 collection encapsulate 起來
 // 提供外部 add/remove 等操作
-// 另外 getter 要提供的 copy 的一分，不然被 client mutate 到，很難 debug
+// 另外 getter 要提供的 copy 的 一份，不然被 client mutate 到，很難 debug
 
 
 import assert from 'node:assert'

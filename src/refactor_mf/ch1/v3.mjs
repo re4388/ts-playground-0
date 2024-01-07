@@ -1,6 +1,8 @@
 export function statement(invoice, plays) {
   let totalAmount = 0
   let volumeCredits = 0
+
+
   let result = `Statement for ${invoice.customer}\n`
 
 
@@ -24,11 +26,6 @@ export function statement(invoice, plays) {
   return result
 
 
-
-
-
-
-  //
   function usd(amount) {
     return new Intl.NumberFormat('en-US',
       { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }).format(amount/100)

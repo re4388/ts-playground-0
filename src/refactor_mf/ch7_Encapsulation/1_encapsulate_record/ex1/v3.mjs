@@ -37,7 +37,10 @@ class CustomerData {
   }
 
   /**
-   * But the problem with this is that there’s no way to prevent clients from modifying the data directly, which breaks the whole point of encapsulating all the updates inside functions. Consequently, the simplest thing to do is to provide a copy of the underlying data, using the rawData method I wrote earlier.
+   * But the problem with this is that there’s no way to prevent clients from modifying the data directly,
+   * which breaks the whole point of encapsulating all the updates inside functions.
+   *
+   * Consequently, the simplest thing to do is to provide a copy of the underlying data, using the rawData method I wrote earlier.
    */
   get rawData() {
     return _.cloneDeep(this._data);

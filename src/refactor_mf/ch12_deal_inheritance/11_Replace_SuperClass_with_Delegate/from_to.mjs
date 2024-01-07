@@ -5,8 +5,9 @@ class List {
 class Stack extends List {
 }
 
-// stack 不需要繼承很多 list 的操作
-// 因此這邊用 composition/delegate 比較好
+// stack 不需要繼承很多 list 的操/*
+// 因為 很多 list 的操作對於 stack 不 make sense
+// 因此這邊用 composition/delegate 比較好, stack 只需要 透過 forwarding method 拿到需要的 method
 
 
 // to
@@ -21,6 +22,11 @@ class List {
 
 
 /**
+ *
+ * 跟 10_Replace_Subclass_with_Delegate 反過來,
+ * 這邊 superclass 注入/composition into subclass
+ *
+ *
  * why
  *
  * In object-oriented programs, inheritance is a powerful and easily available way to reuse existing functionality. I inherit from some existing class, then override and add additional features. But subclassing can be done in a way that leads to confusion and complication.

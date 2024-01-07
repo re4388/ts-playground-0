@@ -17,7 +17,12 @@ function emitPhotoData(outStream, photo) {
 /**
  * why
  *
- * Functions are the basic building block of the abstractions we build as program- mers. And, as with any abstraction, we don’t always get the boundaries right. As a code base changes its capabilities—as most useful software does—we often find our abstraction boundaries shift. For functions, that means that what might once have been a cohesive, atomic unit of behavior becomes a mix of two or more different things.
+ * inverse of: Move Statements into Function (213)
+ *
+ * Functions are the basic building block of the abstractions we build as programmers.
+ *
+ * And, as with any abstraction, we don’t always get the boundaries right. As a code base changes its capabilities — as most useful software does — we often find our abstraction boundaries shift.
+ * For functions, that means that what might once have been a cohesive, atomic unit of behavior becomes a mix of two or more different things.
  *
  *
  * One trigger for this is when common behavior used in several places needs to vary in some of its calls. Now, we need to move the varying behavior out of the function to its callers. In this case, I’ll use Slide Statements (223) to get the varying behavior to the beginning or end of the function and then Move Statements to Callers. Once the varying code is in the caller, I can change it when necessary.

@@ -19,6 +19,8 @@ function targetTemperature(aPlan, currentTemperature) {
 /**
  * why
  *
+ * inverse of: Replace Parameter with Query (324)
+ *
  * When looking through a function’s body, I sometimes see references to something in the function’s scope that I’m not happy with. This might be a reference to a global variable, or to an element in the same module that I intend to move away. To resolve this, I need to replace the internal reference with a parameter, shifting the responsibility of resolving the reference to the caller of the function.
  *
  *

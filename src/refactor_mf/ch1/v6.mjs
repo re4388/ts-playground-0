@@ -1,6 +1,3 @@
-
-
-
 export function statement(invoice, plays) {
   // Split Phase
   // 這邊拆 format and calculation
@@ -10,7 +7,6 @@ export function statement(invoice, plays) {
   return renderPlaintText(data, plays)
 
 }
-
 
 
 function renderPlaintText(data, plays) {
@@ -48,10 +44,10 @@ function renderPlaintText(data, plays) {
 
   function usd(amount) {
     return new Intl.NumberFormat('en-US',
-      { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }).format(amount/100)
+      { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }).format(amount / 100)
   }
 
-  function getPlay(perf){
+  function getPlay(perf) {
     return plays[perf.playID]
   }
 

@@ -29,6 +29,12 @@ class PriorityOrderDelegate {
 }
 
 /**
+ *
+ * 把 subclass 轉為 delegate
+ *
+ * 本來是 superclass and subclass 的關係 -> class and delegate 的關係
+ *
+ *
  * why
  *
  * If I have some objects whose behavior varies from category to category, the natural mechanism to express this is inheritance. I put all the common data and behavior in the superclass, and let each subclass add and override features as needed. Object-oriented languages make this simple to implement and thus a familiar mechanism.

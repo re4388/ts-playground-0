@@ -19,3 +19,6 @@ function score(candidate, medicalExam, scoringGuide) {
 
   return result
 }
+
+
+

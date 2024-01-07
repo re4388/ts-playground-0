@@ -1,4 +1,4 @@
-// 把資料處理和資料顯示分開
+// 把資料處理和資料顯示分開, 可以有兩種不同的顯示邏輯， renderHtml and renderPlaintText
 
 export function htmlStatement(invoice, plays) {
   return renderHtml(createStatementData(invoice, plays))

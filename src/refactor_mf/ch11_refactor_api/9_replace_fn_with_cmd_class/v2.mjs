@@ -1,7 +1,8 @@
-// begin by creating an empty class and then Move Function (198) to move the function into it.
+// begin by creating an empty class and then Move Function (198) to it.
 
 
-// Most of the time, I prefer to pass arguments to a command on the constructor and have the execute method take no parameters since it’s very handy when I want to manipulate the command with a more complicated parameter setting lifecycle or customiza- tions.
+// Most of the time, I prefer to pass arguments to a command on the constructor and have the execute method take no parameters
+// since it’s very handy when I want to manipulate the command with a more complicated parameter setting lifecycle or customizations.
 function score(candidate, medicalExam, scoringGuide) {
   return new Score(candidate).execute(medicalExam, scoringGuide)
 }

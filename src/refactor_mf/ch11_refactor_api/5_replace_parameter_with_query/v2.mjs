@@ -8,6 +8,7 @@ class Order {
     return (this.quantity > 100) ? 2 : 1;
   }
 
+  // only need one param
   discountedPrice(basePrice) {
     switch (this.discountLevel) {
       case 1:
