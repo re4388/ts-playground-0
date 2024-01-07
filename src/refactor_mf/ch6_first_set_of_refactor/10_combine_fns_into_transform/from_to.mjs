@@ -19,6 +19,14 @@ function enrichReading(argReading) {
 /**
  * why
  *
+ *
+ * 可以把很多 client 的 不同或類似的邏輯，都收在同一個地方管理
+ * 好處
+ * 1. 統一管理資料的轉換
+ * 2. client code can be much simpler
+ *
+ *
+ *
  * Software often involves feeding data into programs that calculate various derived information from it. These derived values may be needed in several places, and those calculations are often repeated wherever the derived data is used. I prefer to bring all of these derivations together, so I have a consistent place to find and update them and avoid any duplicate logic.
  *
  * One way to do this is to use a data transformation function that takes the source data as input and calculates all the derivations, putting each derived value as a field in the output data. Then, to examine the derivations, all I need do is look at the transform function.

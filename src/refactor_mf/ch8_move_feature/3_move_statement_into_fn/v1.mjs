@@ -24,9 +24,13 @@ function emitPhotoData(aPhoto) {
   return result.join('\n')
 }
 
-function zznew(p) { return [
+function zznew(p) {
+
+  return [
   `<p>title: ${p.title}</p>`,
-  emitPhotoData(p), ].join("\n");
+    emitPhotoData(p),
+  ]
+    .join("\n");
 }
 
 

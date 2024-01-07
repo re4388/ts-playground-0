@@ -13,3 +13,13 @@ class Book {
     this._reservations.push(customer)
   }
 }
+
+
+
+// client code
+
+let b1 = new Book()
+b1.addReservation('customer1')
+
+let b2 = new Book()
+b2.addReservationV1('customer1')

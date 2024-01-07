@@ -2,12 +2,12 @@
 
 
 
-// 全部都改好的，換回本來的名字
-const newEnglanders = someCustomers.filter(c => inNewEngland(c.address.state));
-const newEnglanders2 = someCustomers.filter(c => inNewEngland(c.address.state));
+// 全部都改好的
+const newEnglanders = someCustomers.filter(c => inNewEnglandV1(c.address.state));
+const newEnglanders2 = someCustomers.filter(c => inNewEnglandV1(c.address.state));
 
 
-function inNewEngland(stateCode) {
+function inNewEnglandV1(stateCode) {
   return ["MA", "CT", "ME", "VT", "NH", "RI"].includes(stateCode);
 }
 

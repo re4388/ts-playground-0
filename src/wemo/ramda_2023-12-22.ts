@@ -2,6 +2,40 @@ import * as R from 'ramda'
 import assert from 'node:assert'
 
 
+
+
+// groupWith
+
+//  兩兩比較
+// R.groupWith(R.equals, [0, 1, 1, 2, 3, 5, 8, 13, 21])
+// //=> [[0], [1, 1], [2], [3], [5], [8], [13], [21]]
+//
+// R.groupWith((a, b) => a + 1 === b, [0, 1, 1, 2, 3, 5, 8, 13, 21])
+// //=> [[0, 1], [1, 2, 3], [5], [8], [13], [21]]
+//
+// R.groupWith((a, b) => a % 2 === b % 2, [0, 1, 1, 2, 3, 5, 8, 13, 21])
+// //=> [[0], [1, 1], [2], [3, 5], [8], [13, 21]]
+//
+// 符合某種規則, 要加上  R.eqBy
+// const isVowel = R.test(/^[aeiou]$/i);
+// R.groupWith(R.eqBy(isVowel), 'aestiou')
+// //=> ['ae', 'st', 'iou']
+
+/**
+ * R.groupWith(predicateFn, [0, 1, 1, 2, 3, 5, 8, 13, 21])
+ * //=> array of arrays, 會把 predicateFn 一樣結果的放在一起
+ *
+ */
+
+function isAgeCanVote (age: number): boolean {
+  return age >= 20
+}
+
+let a33= R.groupWith(R.eqBy(isAgeCanVote), [0, 1, 1, 2, 3, 5, 8, 13, 21])
+console.log("------->a33: ", a33);
+
+
+
 // groupBy
 // 先用 R.groupBy 依照某個 input 的 prop 來進行邏輯分組， 類似 return A, B, C 三組
 // return 一個 groupByX

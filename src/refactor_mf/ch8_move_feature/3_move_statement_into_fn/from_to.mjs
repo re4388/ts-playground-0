@@ -12,6 +12,8 @@ function photoData(aPhoto) {
 
 
 // to
+// move statements to photoData function
+
 const result = []
 result.concat(photoData(person.photo))
 

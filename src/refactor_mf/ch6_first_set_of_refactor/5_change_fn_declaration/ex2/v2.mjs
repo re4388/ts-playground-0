@@ -32,3 +32,11 @@ class Book {
  * I then rename the new function back to the original.
  * Usually, the simple mechanics work fine for this, but I can also use the migration approach if I need to.
  */
+
+// client code
+
+let b1 = new Book()
+b1.addReservation('customer1')
+
+let b2 = new Book()
+b2.addReservationV1('customer1', true)

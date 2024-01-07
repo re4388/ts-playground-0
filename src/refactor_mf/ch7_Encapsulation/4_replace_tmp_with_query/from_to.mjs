@@ -11,13 +11,13 @@ function a1() {
 // to
 
 function a2() {
-  if (this.basePrice > 1000)
+  if (this.getPrice() > 1000)
     return this.basePrice * 0.95
   else
     return this.basePrice * 0.98
 }
 
-function basePrice() {
+function getPrice() {
   return this._quantity * this._itemPrice
 }
 

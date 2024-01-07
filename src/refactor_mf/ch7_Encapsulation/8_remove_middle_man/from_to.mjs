@@ -11,6 +11,8 @@ class Person {
 
 // to
 
+// or called... reveal delegate
+
 manager = aPerson.department.manager;
 
 

@@ -9,6 +9,8 @@ orders.filter(order =>
 
 // to
 
+// 把 priority 的 string 转换成 Priority 对象
+
 orders.filter(
   order => order.priority.higherThan(new Priority("normal"))
 )

@@ -9,15 +9,32 @@ const station = {
   ]
 }
 
-function readingsOutsideRange(station, min, max, range) {
+// 原本的不動, 先不砍
+function readingsOutsideRange(station, min, max) {
   return station.readings
     .filter(r => r.temp < min || r.temp > max)
 }
 
-// caller
-const range = new NumberRange(operatingPlan.temperatureFloor, operatingPlan.temperatureCeiling);
-alerts = readingsOutsideRange(station, operatingPlan.temperatureFloor,
-  operatingPlan.temperatureCeiling, range);
+// old interface, new implementation
+function readingsOutsideRange(station, min, max) {
+  readingsOutsideRangeV1(station, min, max, undefined)
+}
+
+function readingsOutsideRangeV1(station, min, max, range) {
+  return station.readings
+    .filter(r => r.temp < min || r.temp > max)
+}
+
+
+// caller1 先無法改, 其他 team 管理
+alerts = readingsOutsideRange(station, operatingPlan.temperatureFloor, operatingPlan.temperatureCeiling)
+
+// caller2
+let range = new NumberRange(operatingPlan.temperatureFloor, operatingPlan.temperatureCeiling);
+
+readingsOutsideRangeV1(station, operatingPlan.temperatureFloor, operatingPlan.temperatureCeiling, range)
+
+
 
 // I still haven’t altered any behavior yet, as the parameter isn’t used. All tests should still work.
 

@@ -13,6 +13,7 @@ class Person {
 
 // to
 
+// extract TelephoneNumber class
 
 class Person {
   get officeAreaCode() {

@@ -1,9 +1,11 @@
 /**
- * set 那邊不要有太多 data mutation 的 operation
+ *
+ * setter 不要有太多 data mutation 的 operation
  * 因為我們希望越少 mutate operation 越好
  *
- * 最後就是把資料簡單的 set 進去就好
- * 然後可以把複雜度移動到 query 的部份
+ * keep setter simple
+ * and move the complexity to getter
+ * 
  */
 
 
@@ -16,11 +18,18 @@ class ProductionPlan {
 
   applyAdjustment(anAdjustment) {
     /**
-     * I see ugliness in duplication:
-     * not the common duplication of code but duplication of data.
      *
+     * very ugly duplication of code:
+     * not code duplication
+     * this is data duplication
+     *
+     * the same data: anAdjustment goes into 2 places: this._production and this._adjustments
      * 1. anAdjustment 被推到 this._adjustments
      * 2. anAdjustment 被累積到 this._production
+     *
+     * is this really necessary?
+     *
+     *
      */
     this._adjustments.push(anAdjustment)
     this._production += anAdjustment.amount

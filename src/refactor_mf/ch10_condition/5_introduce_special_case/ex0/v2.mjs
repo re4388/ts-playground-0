@@ -29,6 +29,7 @@ class Customer {
 
 
 // 由 site 源頭去判斷, 出去的 customer 就已經分好了!
+// 下面的 client 不用判斷了
 class Site {
   get customer() {
     return (this._customer === 'unknown') ? new UnknownCustomer() : this._customer

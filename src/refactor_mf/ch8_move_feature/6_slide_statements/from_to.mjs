@@ -7,6 +7,8 @@ const chargePerUnit = pricingPlan.unit
 
 
 // to
+// 把類似的概念放一起，這邊是把init 都放在上面
+// 也可以把會用到的都放在一起
 
 const pricingPlan = retrievePricingPlan()
 const chargePerUnit = pricingPlan.unit

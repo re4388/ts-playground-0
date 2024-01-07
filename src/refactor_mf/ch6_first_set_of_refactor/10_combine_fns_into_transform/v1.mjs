@@ -25,7 +25,7 @@ function calculateBaseCharge(aReading) {
 }
 
 
-// One way of dealing with this is to move all of these derivations into a transfor- mation step that takes the raw reading and emits a reading enriched with all the common derived results.
+// One way of dealing with this is to move all of these derivations into a transformation step that takes the raw reading and emits a reading enriched with all the common derived results.
 // I begin by creating a transformation function that merely copies the input object.
 
 // When I’m applying a transformation that produces essentially the same thing but with additional information, I like to name it using “enrich”. If it were producing something I felt was different, I would name it using “transform”.

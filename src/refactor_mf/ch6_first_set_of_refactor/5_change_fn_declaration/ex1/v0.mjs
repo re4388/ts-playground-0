@@ -4,8 +4,8 @@ function circum(radius) {
 }
 
 // migration mechanics:
-// I begin by applying Extract Function (106) to the entire function body.
-// 用原本的 api 包住改的
+// use Extract Function (106) to the entire function body.
+// 用原本的 api 包住 new one
 // 這樣 client side 不會掛
 // 等到全部 client 都更新好了，再移除
 function circum(radius) {
@@ -15,6 +15,20 @@ function circum(radius) {
 function circumference(radius) {
   return 2 * Math.PI * radius
 }
+
+
+
+// all clients need to work in the transition period
+
+// client3 code <- we only can change this for now
+circumference(23)
+
+
+// client1 code <- only can change 1 month after
+circum(23)
+// client2 code <- only can change 1 month after
+circum(23)
+
 
 
 /**

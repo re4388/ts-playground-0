@@ -4,6 +4,8 @@
 // force to know department(delegate object)
 manager = aPerson.department.manager
 
+
+
 // to
 
 
@@ -22,6 +24,8 @@ class Person {
 
 /**
  * why
+ *
+ * inverse of: remove middle man
  *
  * Encapsulation means that modules need to know less about other parts of the system.
  * Then, when things change, fewer modules need to be told about the change — which makes the change easier to make.

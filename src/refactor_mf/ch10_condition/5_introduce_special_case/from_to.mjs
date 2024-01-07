@@ -5,6 +5,9 @@ if (aCustomer === 'unknown') customerName = 'occupant'
 
 // to
 
+// setup a class to handle this unknown case
+// 那些針對 unknown case 下的邏輯，移到 unknown class's methods
+
 class UnknownCustomer {
   get name() {
     return 'occupant'

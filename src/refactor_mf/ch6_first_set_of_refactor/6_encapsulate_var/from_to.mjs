@@ -6,6 +6,7 @@ let defaultOwner = {
 }
 
 // to
+// 用 fn 包起來
 
 let defaultOwnerData = {
   firstName: 'Martin',

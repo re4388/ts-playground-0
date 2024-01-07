@@ -11,6 +11,8 @@ class Customer {
 
 // to
 
+// 把 _discountRate move to plan class
+
 class Customer {
   get plan() {
     return this._plan
@@ -20,6 +22,8 @@ class Customer {
     return this.plan.discountRate
   }
 }
+
+export {}
 
 
 /**

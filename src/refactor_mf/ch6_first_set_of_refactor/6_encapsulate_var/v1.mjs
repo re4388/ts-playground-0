@@ -11,8 +11,8 @@ spaceship.owner = defaultOwner
 defaultOwner = { firstName: 'Rebecca', lastName: 'Parsons' }
 
 
-// To do a basic encapsulation on this, I start by defining functions to read and
-// write the data.
+// To do a basic encapsulation on this
+// I start by defining functions to read and write the data.
 function getDefaultOwner() {
   return defaultOwner
 }

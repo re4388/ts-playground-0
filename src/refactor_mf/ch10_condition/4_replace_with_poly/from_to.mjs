@@ -32,6 +32,18 @@ class EuropeanSwallow {
 
 
 /**
+ * Why?
+ *
+ *
+ * 兩種情況
+ *
+ * 1. switch case 下，如果每個 case 下的邏輯足夠複雜，可以用 sub class + factory fcunction
+ * 2. 一個 class 中有一些變異，可以拆出來
+ *
+ *
+ *
+ *
+ *
  * Complex conditional logic is one of the hardest things to reason about in programming, so I always look for ways to add structure to conditional logic.
  *
  * Often, I find I can separate the logic into different circumstances —high-level cases — to divide the conditions.

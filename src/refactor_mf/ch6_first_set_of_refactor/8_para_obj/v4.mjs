@@ -9,17 +9,33 @@ const station = {
   ]
 }
 
+// 原本的不動, 先不砍
+function readingsOutsideRange(station, min, max) {
+  return station.readings
+    .filter(r => r.temp < min || r.temp > max)
+}
+
+// old interface, new implementation
+function readingsOutsideRange(station, min, max) {
+  readingsOutsideRangeV1(station, min, max, undefined)
+}
+
 // Now I can start replacing the usage of the parameters. I’ll start with the
 // maximum.
-function readingsOutsideRange(station, min, range) {
+function readingsOutsideRangeV1(station, min, range) {
   return station.readings
     .filter(r => r.temp < min || r.temp > range.max)
 }
 
-// caller
-const range = new NumberRange(operatingPlan.temperatureFloor, operatingPlan.temperatureCeiling);
-alerts = readingsOutsideRange(station, operatingPlan.temperatureFloor, range);
-// I can test at this point, then remove the other parameter.
+
+// caller1 先無法改, 其他 team 管理
+alerts = readingsOutsideRange(station, operatingPlan.temperatureFloor, operatingPlan.temperatureCeiling)
+
+// caller2
+let range = new NumberRange(operatingPlan.temperatureFloor, operatingPlan.temperatureCeiling);
+
+readingsOutsideRangeV1(station, operatingPlan.temperatureFloor, range);
+
 
 
 // I still haven’t altered any behavior yet, as the parameter isn’t used. All tests should still work.

@@ -21,6 +21,7 @@ class TelephoneNumber {
 }
 
 // to
+// 把 class inline into suitable place
 
 class Person {
   get officeAreaCode() {

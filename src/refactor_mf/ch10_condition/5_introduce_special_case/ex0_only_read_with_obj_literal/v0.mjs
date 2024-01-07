@@ -1,6 +1,9 @@
 /**
  * 一樣的例子
  * 這次沒有 client 需要 update, 因此我們可以用 object literal 處理
+ * if there's no write operation, we can use obj literal to handle, code is simpler
+ *
+ *
  */
 
 

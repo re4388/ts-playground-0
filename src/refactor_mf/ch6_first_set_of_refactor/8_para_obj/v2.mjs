@@ -9,13 +9,29 @@ const station = {
   ]
 }
 
-function readingsOutsideRange(station, min, max, range) {
+// 原本的不動
+function readingsOutsideRange(station, min, max) {
   return station.readings
     .filter(r => r.temp < min || r.temp > max)
 }
 
-// caller
-alerts = readingsOutsideRange(station, operatingPlan.temperatureFloor, operatingPlan.temperatureCeiling, null)
+// 新版
+function readingsOutsideRange(station, min, max) {
+  readingsOutsideRangeV1(station, min, max, range)
+}
+
+function readingsOutsideRangeV1(station, min, max, range) {
+  return station.readings
+    .filter(r => r.temp < min || r.temp > max)
+}
+
+
+// caller1 先無法改, 其他 team 管理
+alerts = readingsOutsideRange(station, operatingPlan.temperatureFloor, operatingPlan.temperatureCeiling)
+
+// caller2
+alerts = readingsOutsideRange(station, operatingPlan.temperatureFloor, operatingPlan.temperatureCeiling)
+
 
 // At this point I haven’t changed any behavior, and tests should still pass. I then go to each caller and adjust it to pass in the correct date range.
 

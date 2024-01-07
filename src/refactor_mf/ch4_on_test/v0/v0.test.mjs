@@ -22,10 +22,10 @@ describe('no producers', function() {
     }
     noProducers = new Province(data)
   })
-  it('shortfall', function() {
+  test('shortfall', function() {
     expect(noProducers.shortfall).toBe(30)
   })
-  it('profit', function() {
+  test('profit', function() {
     expect(noProducers.profit).toBe(0)
   })
 
@@ -33,7 +33,7 @@ describe('no producers', function() {
 })
 
 describe('string for producers', function() {
-  it('', function() {
+  test('', function() {
     const data = {
       name: 'String producers',
       producers: '',
@@ -51,35 +51,35 @@ describe('string for producers', function() {
       asia = new Province(sampleProvinceData())
     })
 
-    it('zero demand', function() {
+    test('zero demand', function() {
       asia.demand = 0
       expect(asia.shortfall).toBe(-25)
       expect(asia.profit).toBe(0)
     })
 
-    it('negative demand', function() {
+    test('negative demand', function() {
       asia.demand = -1
       expect(asia.shortfall).toBe(-26)
       expect(asia.profit).toBe(-10)
     })
 
-    it('empty string demand', function() {
+    test('empty string demand', function() {
       asia.demand = ''
       expect(asia.shortfall).toBeNaN
       expect(asia.profit).toBeNaN
     })
 
 
-    it('shortfall', function() {
+    test('shortfall', function() {
       expect(asia.shortfall).toBe(5)
     })
 
 
-    it('profit', function() {
+    test('profit', function() {
       expect(asia.profit).toBe(230)
     })
 
-    it('change production', function() {
+    test('change production', function() {
       asia.producers[0].production = 20
       expect(asia.shortfall).toBe(-6)
       expect(asia.profit).toBe(292)

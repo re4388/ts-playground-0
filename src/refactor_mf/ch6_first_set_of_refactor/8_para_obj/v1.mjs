@@ -14,8 +14,7 @@ function readingsOutsideRange(station, min, max) {
     .filter(r => r.temp < min || r.temp > max)
 }
 
-
-// caller
+// caller1
 alerts = readingsOutsideRange(station, operatingPlan.temperatureFloor, operatingPlan.temperatureCeiling)
 
 // A range like this is a common case where two separate data items are better combined into a single object. I’ll begin by declaring a class for the combined data.
