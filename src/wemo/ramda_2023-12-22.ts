@@ -133,3 +133,40 @@ let a3 =
 let res3 = R.omit(['age'], a3)
 assert.deepEqual(res3, { name: 'ben' })
 
+
+let a222 = [
+  {
+    id: 4,
+    name: 'qs_01',
+    repairItems: [
+      { id: '2', name: 'DeletedItem / DeletedMaterial' },
+      { id: '3', name: 'DeletedItem / DeletedMaterial' },
+      { id: '1', name: 'r1' }
+    ],
+    repairMaterials: [
+      { id: '21', name: 'DeletedItem / DeletedMaterial' },
+      { id: '22', name: 'DeletedItem / DeletedMaterial' }
+    ],
+    type: 'B',
+    vehicleModelId: '2'
+  },
+  {
+    id: 2,
+    name: 'qs_01',
+    repairItems: [
+      { id: '2', name: 'DeletedItem / DeletedMaterial' },
+      { id: '3', name: 'DeletedItem / DeletedMaterial' },
+      { id: '1', name: 'r1' }
+    ],
+    repairMaterials: [
+      { id: '21', name: 'DeletedItem / DeletedMaterial' },
+      { id: '22', name: 'DeletedItem / DeletedMaterial' }
+    ],
+    type: 'C',
+    vehicleModelId: '2'
+  }
+]
+
+let a222Res = R.pluck('type', a222)
+console.log("------->a222Res: ", a222Res);
+
