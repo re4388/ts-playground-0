@@ -35,7 +35,6 @@ let a33= R.groupWith(R.eqBy(isAgeCanVote), [0, 1, 1, 2, 3, 5, 8, 13, 21])
 console.log("------->a33: ", a33);
 
 
-
 // groupBy
 // 先用 R.groupBy 依照某個 input 的 prop 來進行邏輯分組， 類似 return A, B, C 三組
 // return 一個 groupByX

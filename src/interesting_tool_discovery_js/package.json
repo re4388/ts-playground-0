@@ -1,0 +1,15 @@
+{
+  "name": "interesting_tool_discovery_js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "try_pg_string.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pg-connection-string": "^2.6.2"
+  }
+}

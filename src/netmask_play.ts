@@ -1,6 +1,7 @@
 import { Netmask } from "netmask";
 
 const block = new Netmask("210.68.77.192/26");
+console.log("------->block: ", block);
 
 export function netmask() {
   console.log(block.size);
