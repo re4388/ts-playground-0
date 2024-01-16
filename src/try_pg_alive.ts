@@ -3,8 +3,6 @@ import { strictEqual } from 'assert'
 import { parse } from 'pg-connection-string'
 
 
-console.log("22")
-
 const connectionString = 'postgres://local:local@127.0.0.1:54399/hermes_local'
 
 async function checkConnection() {
