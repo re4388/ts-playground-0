@@ -118,8 +118,50 @@ let a2 = [
   }
 ]
 
-let res2 = R.pluck('name', a2)
-assert.deepEqual(res2, ['ben', 'jack'])
+let res2222 = R.pluck('name', a2)
+assert.deepEqual(res2222, ['ben', 'jack'])
+
+
+
+
+
+
+let data_t2024 = [
+  {
+    id: 'f4d27b68-be37-44f7-b4f3-f249378a67d8',
+    name: 'station_fake_name0',
+    address: 'CKS',
+    lat: 25.0339457321656,
+    lng: 121.519072616738,
+    status: 1,
+    updatedAt: '2024-01-17T12:32:08.549Z'
+  },
+  {
+    id: 'd6202f7e-b4a6-4539-beab-dd72b5253d91',
+    name: 'station_fake_name0',
+    address: 'CKS',
+    lat: 25.0324579602245,
+    lng: 121.5196929349,
+    status: 1,
+    updatedAt: '2024-01-17T12:32:08.562Z'
+  },
+  {
+    id: '21c34340-87f3-4832-a757-eba23252acef',
+    name: 'station_fake_name0',
+    address: 'CKS',
+    lat: 25.0327224543326,
+    lng: 121.51750357668,
+    status: 1,
+    updatedAt: '2024-01-17T12:32:08.566Z'
+  }
+]
+
+let qq233333 = R.pluck('address', data_t2024)
+console.log("------->qq233333: ", qq233333);
+
+
+
+
 
 
 // 吃 obj, 拿掉指定的 key

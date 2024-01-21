@@ -2,6 +2,8 @@ import { Client, ClientConfig, QueryResult } from 'pg'
 import { strictEqual } from 'assert'
 import { parse } from 'pg-connection-string'
 
+console.log('hello world')
+
 
 const connectionString = 'postgres://local:local@127.0.0.1:54399/hermes_local'
 

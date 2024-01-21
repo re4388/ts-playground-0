@@ -10,11 +10,6 @@ import { createInsertSchema, createSelectSchema } from 'drizzle-zod'
 import { z } from 'zod';
 
 
-
-
-
-
-
 export type User = InferModel<typeof users>;
 export type NewUser = InferModel<typeof users, 'insert'>;
 export type City = InferModel<typeof cities>;
