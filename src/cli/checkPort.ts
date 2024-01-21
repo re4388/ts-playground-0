@@ -1,23 +1,19 @@
 import find from 'find-process'
 import prompts from 'prompts'
-
-(async () => {
+;(async () => {
   const port = await prompts({
     type: 'number',
     name: 'value',
     message: 'port?',
-    validate: (value: number) => value < 0 || value > 65535 ? `out of port range` : true
+    validate: (value: number) => (value < 0 || value > 65535 ? `out of port range` : true)
   })
 
-  find('port', port.value)
-    .then((list: any) => {
+  find('port', port.value).then(
+    (list: any) => {
       console.log(list)
-    }, (err: { stack: any; }) => {
+    },
+    (err: { stack: any }) => {
       console.log(err.stack || err)
-    })
-
-
+    }
+  )
 })()
-
-
-

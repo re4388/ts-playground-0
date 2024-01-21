@@ -3,6 +3,7 @@ import { runAppleScript } from 'run-applescript'
 import moment from 'moment-timezone'
 import { promises as fs } from 'fs'
 import { $ } from 'zx'
+import { openInIterm2 } from './util/openInIterm2.mjs'
 
 
 // 建立路徑
@@ -21,38 +22,6 @@ try {
 
 
 // // 建立 script and 跑起來
-await runAppleScript(createAppleScript(filePath))
+await openInIterm2(`nvim ${filePath}`)
 
-
-
-/////////////////////////////////////////////////
-
-function createAppleScript(path: string) {
-  return `
-set commandToRun to "nvim ${path}"
-
-if application "iTerm" is running then
-    tell application "iTerm"
-        activate
-        try
-            set currentWindow to first window
-        on error
-            set currentWindow to (create window with default profile)
-        end try
-        tell current session of currentWindow
-            write text commandToRun
-        end tell
-    end tell
-else
-    tell application "iTerm"
-        activate
-        set newWindow to (create window with default profile)
-        tell current session of newWindow
-            write text commandToRun
-        end tell
-    end tell
-end if
-
-`
-}
 

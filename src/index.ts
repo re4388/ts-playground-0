@@ -7,7 +7,7 @@ import { netmask } from './netmask_play'
 import { ramdaPlay } from './ramda_play'
 import { bullJob, bullWorker } from './redis/redis_bull'
 import { tcpServer } from './servers/tcp_server_play'
-import { run_facker } from './facker'
+import { run_facker } from './faker'
 import { proxyServerWithExpress } from './servers/reverse-proxy/reverse-proxy-server-with-express'
 import { expressProxy } from './servers/reverse-proxy/express-proxy-middleware'
 import { port_forwarding } from './servers/reverse-proxy/port-forwarding'
@@ -27,18 +27,13 @@ import { run_main_drizzle } from './orm/drizzle'
 
 // import { Innertube } from 'youtubei.js';
 
-
 const main = async () => {
-
   await run_main_drizzle()
 
   // const youtube = await Innertube.create(/* options */);
   // const info = await youtube.getLibrary()
 
-
-
   // const { Innertube } = require('youtubei.js');
-
 
   // runParserP2()
   // runParser()
@@ -74,12 +69,9 @@ const main = async () => {
   // run_ts_sql_query0()
   // run_facker()
   //
-
 }
 
-
 main()
-
 
 process.on('uncaughtException', (error) => {
   console.error(error)
