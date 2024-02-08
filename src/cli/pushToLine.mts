@@ -1,9 +1,3 @@
-import { pushTextToLine } from './util/pushTextToLine.mjs'
-import clipboard from 'clipboardy'
-
-
-let copied = clipboard.readSync()
-await pushTextToLine(copied)
 
 
 /**

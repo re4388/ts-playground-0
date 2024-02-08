@@ -1,8 +1,6 @@
 import clipboard from 'clipboardy'
-import { runAppleScript } from 'run-applescript'
 import moment from 'moment-timezone'
 import { promises as fs } from 'fs'
-import { $ } from 'zx'
 import { openInIterm2 } from './util/openInIterm2.mjs'
 
 

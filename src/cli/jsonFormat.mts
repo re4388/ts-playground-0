@@ -2,6 +2,19 @@ import clipboard  from 'clipboardy'
 import prettier from 'prettier'
 
 
+/**
+ *
+ *
+ * no need to have this plugin
+ * reason: not complicated enough
+ *
+ *
+ * go to IDE
+ * use file to open scratch file, .json
+ * paste it
+ * format
+ *
+ */
 
 
 // 拿到剪貼版的資料

@@ -6,6 +6,8 @@ import url from 'url'
 
 const port = 3033
 
+// TODO: check if the port is being used...
+
 let httpServer = http.createServer((req, res) => {
   const parsedUrl = url.parse(req.url as string, true)
   const query = parsedUrl.query
