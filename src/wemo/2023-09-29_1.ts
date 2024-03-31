@@ -1,14 +1,16 @@
 type TableColumn = {
-  column: string;
-  type: 'STRING' | 'INTEGER' | 'TIMESTAMP';
-};
+  column: string
+  type: 'STRING' | 'INTEGER' | 'TIMESTAMP'
+}
 
 let res = parseKqlSchema('`id` STRING KEY, `subscriptionDay` INTEGER, `tripCount` INTEGER, `statisticAt` TIMESTAMP')
 console.log('=====> res: ', res)
 
 function parseKqlSchema(schema: string): (TableColumn | undefined)[] {
   try {
-    return <TableColumn[]>schema.split(',').map((s) => /`(?<column>\w+)`\s+(?<type>STRING|INTEGER|TIMESTAMP)/.exec(s)?.groups)
+    return <TableColumn[]>(
+      schema.split(',').map((s) => /`(?<column>\w+)`\s+(?<type>STRING|INTEGER|TIMESTAMP)/.exec(s)?.groups)
+    )
   } catch (error) {
     console.error({ error, msg: `parse ksql traversal error` })
     throw error
@@ -24,10 +26,6 @@ let a1 = [
   { column: 'tripCount', type: 'INTEGER' },
   { column: 'statisticAt', type: 'TIMESTAMP' }
 ]
-
-
-
-
 
 function kqlTypeConverter(kqlType: string, input: unknown): string | number | Date | undefined {
   switch (kqlType) {
@@ -48,4 +46,3 @@ function kqlTypeConverter(kqlType: string, input: unknown): string | number | Da
     }
   }
 }
-

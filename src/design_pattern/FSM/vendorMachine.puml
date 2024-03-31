@@ -1,0 +1,16 @@
+@startuml
+[*] --> Standby
+
+state Standby {
+  [*] --> Idle
+  Idle --> ProductSelection : 用户选择商品
+}
+
+state ProductSelection {
+  ProductSelection --> PurchaseConfirmation : 确认购买
+}
+
+state PurchaseConfirmation {
+  PurchaseConfirmation --> Idle : 购买成功
+}
+@enduml

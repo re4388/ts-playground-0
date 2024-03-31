@@ -32,4 +32,4 @@ const proxy = new HttpReverseProxy({
 proxy.addRoute('http://server1.qzqzqz.com', 'localhost:8001')
 proxy.addRoute('http://server2.qzqzqz.com', 'localhost:8002')
 
-logger.info(null, 'Proxy server started')
+logger.info(null, 'Http reverse proxy server started')

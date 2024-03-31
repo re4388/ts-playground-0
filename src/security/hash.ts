@@ -1,37 +1,28 @@
 import * as crypto from 'node:crypto'
 
-
-
-
 function demoTLSExchangeSecretProcess() {
+  // 1. server端產生一對公私鑰
+  let { publicKey, privateKey } = genPubAndPriKeys()
 
-  // 1. server gen pub and pri
-  let {publicKey, privateKey} = genPubAndPriKeys()
+  // 2. pubKey可以透過網路沒關係，傳給 client
 
-  // 2. server send pubKey to client
-
-
-  // 3. client use pubKey to encrypt the sym-key
+  // 3. 客戶端先產生一個密碼，自己存起來, 這個密碼叫做共享密鑰
   const pass = genPassword()
-  console.log("=====> pass: ", pass);
+  console.log('=====> pass: ', pass)
+
+  // 4. 客戶端使用server的公鑰加密這個密碼 get encrypted_password
   let encrypted_password = encryptWithPub(publicKey, pass)
 
+  // 5. 客戶端把 encrypted_password 傳給伺服器
 
-  // 4. client sent the encrypted_sym_key to server
-
-
-
-  // 5. server use priKey to decrypt and get the sym-key
+  // 6. server端可以使用私鑰解密(因為這是用公鑰加密的) 來拿到 encrypted_password
   let res = decryptWithPri(privateKey, encrypted_password)
 
-  // 6. client and server can both then use sym-key to talk to each other
-  console.log("=====> res: ", res);
-
+  // 7. 這樣 client and server端就兩邊都有一組共同的密鑰來加密，後續要傳的資料
+  console.log('=====> res: ', res)
 }
 
 // demoTLSExchangeSecretProcess()
-
-
 
 /**
  * 我要傳一個資料給A
@@ -57,30 +48,24 @@ function demoDigitSignatureProcess() {
   const data = 'this is the data'
 
   const data_hashed = hash(data)
-  console.log("=====> data_hashed: ", data_hashed);
+  console.log('=====> data_hashed: ', data_hashed)
 
-  const {publicKey: pubKey, privateKey: priKey} =  genPubAndPriKeys()
+  const { publicKey: pubKey, privateKey: priKey } = genPubAndPriKeys()
 
   let data_encrypted = encryptWithPri(priKey, data_hashed)
 
-
-// send pub key to receiver
+  // send pub key to receiver
   let data_decrypted = decryptWithPub(pubKey, data_encrypted)
-  console.log("=====> data_decrypted: ", data_decrypted);
+  console.log('=====> data_decrypted: ', data_decrypted)
 
   console.log(data_hashed === data_hashed)
-
 }
-
-
 
 //////////// UTIL ///////////////////
 
-
 function genPassword() {
-  return Math.random().toString(36).slice(-8);
+  return Math.random().toString(36).slice(-8)
 }
-
 
 function hash(content: string) {
   let hashAlgo = crypto.createHash('sha256')
@@ -138,13 +123,13 @@ function encryptWithPri(priKey: string, content: string) {
   // console.log('Encrypted Data:')
   return encryptedData
 }
-function stringToArrayBufferView(input:string) {
+function stringToArrayBufferView(input: string) {
   // Encode the string as UTF-8
-  const encoder = new TextEncoder();
-  const utf8Encoded = encoder.encode(input);
+  const encoder = new TextEncoder()
+  const utf8Encoded = encoder.encode(input)
 
-// Create a Uint8Array view from the encoded data
-  const arrayBufferView = new Uint8Array(utf8Encoded);
+  // Create a Uint8Array view from the encoded data
+  const arrayBufferView = new Uint8Array(utf8Encoded)
 
   return arrayBufferView
 }
@@ -152,10 +137,10 @@ function decryptWithPub(pubkey: string, data: Buffer) {
   const decryptedData = crypto.publicDecrypt(
     {
       key: pubkey,
-      padding: crypto.constants.RSA_PKCS1_PADDING,
+      padding: crypto.constants.RSA_PKCS1_PADDING
     },
     data
-  );
+  )
 
   return decryptedData.toString('utf-8')
 }
@@ -164,10 +149,10 @@ function decryptWithPri(privateKey: string, data: Buffer) {
   const decryptedData = crypto.privateDecrypt(
     {
       key: privateKey,
-      padding: crypto.constants.RSA_PKCS1_PADDING,
+      padding: crypto.constants.RSA_PKCS1_PADDING
     },
     data
-  );
+  )
 
   return decryptedData.toString('utf-8')
 }
@@ -180,5 +165,4 @@ function encryptWithSecret(plaintext: string, syncKey: string) {
   // console.log('Encrypted Data:', encryptedData);
   // console.log('Initialization Vector (IV):', iv.toString('hex'));
   return encryptedData
-
 }

@@ -1,24 +1,18 @@
-
-
-
-
-
-
-type RepairItem = { [key: string]: number };
-type RepairMaterial = { [key: string]: number };
+type RepairItem = { [key: string]: number }
+type RepairMaterial = { [key: string]: number }
 
 interface QuotationSpec {
-  name: string;
-  age: number;
+  name: string
+  age: number
 }
 type Spec = {
   spec: {
-    repairItem: RepairItem;
-    repairMaterial: RepairMaterial;
+    repairItem: RepairItem
+    repairMaterial: RepairMaterial
   }
-};
+}
 
-export type QuotationSpecData = QuotationSpec & Spec;
+export type QuotationSpecData = QuotationSpec & Spec
 
 const ai_ts_test: QuotationSpecData = {
   name: 'a',
@@ -36,6 +30,3 @@ const ai_ts_test: QuotationSpecData = {
 }
 
 let a2 = ai_ts_test
-
-
-

@@ -7,7 +7,6 @@ import health from './route/health'
 
 export async function runSimpleExpress() {
   return new Promise((resolve, reject) => {
-
     const app: Express = express()
     app.use(bodyParser.urlencoded({ extended: false }))
     app.use(bodyParser.json())
@@ -18,6 +17,11 @@ export async function runSimpleExpress() {
       // debugger
       console.log('Server is running at http://localhost:3111')
     })
-
   })
 }
+
+async function main() {
+  await runSimpleExpress()
+}
+
+main()

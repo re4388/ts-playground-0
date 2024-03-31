@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="ts_node" type="RUN_ANYTHING_CONFIGURATION" factoryName="RunAnythingFactory">
+    <option name="arguments" value="$PROJECT_DIR$/node_modules/ts-node/dist/bin.js $FilePath$" />
+    <option name="command" value="$USER_HOME$/Library/Caches/fnm_multishells/46884_1707223495071/bin/node" />
+    <option name="inputText" />
+    <option name="workingDirectory" value="$FileDir$" />
+    <method v="2" />
+  </configuration>
+</component>

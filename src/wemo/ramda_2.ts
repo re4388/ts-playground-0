@@ -22,7 +22,7 @@ interface NextRewardInfo {
 //    }
 // }
 
-const nextRewardInfo:NextRewardInfo = {
+const nextRewardInfo: NextRewardInfo = {
   notifyBatPercent: 0,
   swappedCount: 0,
   rewardIndex: {
@@ -31,8 +31,11 @@ const nextRewardInfo:NextRewardInfo = {
   bonusConfig: undefined
 }
 
-const rebateVoucherTotalAmount = nextRewardInfo.rewardIndex?.rewardAmount + R.defaultTo(0, nextRewardInfo.bonusConfig?.bonusAmount)
-console.log("rebateVoucherTotalAmount", rebateVoucherTotalAmount);
+const rebateVoucherTotalAmount =
+  nextRewardInfo.rewardIndex?.rewardAmount + R.defaultTo(0, nextRewardInfo.bonusConfig?.bonusAmount)
+console.log('rebateVoucherTotalAmount', rebateVoucherTotalAmount)
 
+let a1 = R.defaultTo(23, 333)
+console.log('a1', a1)
 
 export {}
