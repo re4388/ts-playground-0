@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 4000
 
 console.log(`worker pid=${process.pid}`)
 
-server.get('/recipes/:id', async (req,reply) => {
+server.get('/recipes/:id', async (req, reply) => {
   console.log(`worker request pid=${process.pid}`)
   const id = Number(req.params.id)
 
@@ -13,8 +13,10 @@ server.get('/recipes/:id', async (req,reply) => {
     return { error: 'not_found' }
   }
   return {
-    producer_pid: process.pid, recipe: {
-      id, name: 'Chicken Tikka Masala',
+    producer_pid: process.pid,
+    recipe: {
+      id,
+      name: 'Chicken Tikka Masala',
       steps: 'Throw it in a pot...',
       ingredients: [
         { id: 1, name: 'Chicken', quantity: '1 lb' },
